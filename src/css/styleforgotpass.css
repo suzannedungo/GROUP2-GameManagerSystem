@@ -10,7 +10,6 @@
     --sec-text-color:black;
     --btn-color:rgba(255, 255, 255, 0.865);
     --bt-hover:rgba(255, 255, 255, 0.5);
-    --input-field-color:rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -24,16 +23,22 @@ body {
     background-position: center;
 }
 
+.form-container .title-logo{
+   text-align: center;
+}
+
 .form-container {
     width: 320px;
-    height: 250px;
+    height: 300px;
     background: transparent;
-    border: 2px solid rgba(255,255,255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow:  0 0 10px rgba(0,0,0, .2);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);  /* Start with no blur */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: var(--main-text-color);
     border-radius: 10px;
     padding: 30px 40px;
+    animation: transitionIn 0.7s; /* transition in */
+    animation-timing-function: ease;
 }
 
 .form-container button:active {
@@ -142,5 +147,16 @@ body {
     
     .signup-link {
         font-size: 12px;
+    }
+}
+
+@keyframes transitionIn {
+    0% {
+        border-radius: 60%;
+        backdrop-filter: blur(0px); /* Start with no blur */
+    }
+    100% {
+        border-radius: 10%;
+        backdrop-filter: blur(20px); /* End with blur */
     }
 }

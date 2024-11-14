@@ -23,9 +23,13 @@ body {
     background-position: center;
 }
 
+.form-container .title-logo{
+    text-align: center;
+ }
+
 .form-container {
     width: 400px;
-    height: 300px;
+    height: 350px;
     justify-content: center;
     align-items: center;
     background: transparent;
@@ -35,6 +39,9 @@ body {
     color: var(--main-text-color);
     border-radius: 10px;
     padding: 30px 40px;
+    animation: transitionIn 0.7s;/*transition in*/
+    animation-timing-function: ease;
+
 }
 
 .form-container button:active {
@@ -135,5 +142,15 @@ body {
     
     .signup-link {
         font-size: 12px;
+    }
+}
+@keyframes transitionIn {
+    0% {
+        border-radius: 60%;
+        backdrop-filter: blur(0px); /* Start with no blur */
+    }
+    100% {
+        border-radius: 10%;
+        backdrop-filter: blur(20px); /* End with blur */
     }
 }

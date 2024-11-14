@@ -88,6 +88,7 @@ body{
     height: 420px;
     overflow: hidden;
     z-index: 2;
+    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in effect */
 }
 
 .login-container{
@@ -272,5 +273,14 @@ text-decoration: none;
     .register-container .two-forms{
         flex-direction: column;
         gap: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
