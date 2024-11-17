@@ -1,10 +1,17 @@
+<?php
+include_once __DIR__ . "/../config/settings.php";
+include_once __DIR__ . "/../dashboard/Authentication.php";
+
+Authentication::checkOTPVerifyNotOnGoing();
+Authentication::checkAccLoggedIn();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
+    <title>Verify OTP | VOID</title>
     <link rel="icon" href="../src/img/logo.png"> <!--logo-->
     <link rel="stylesheet" href="../src/css/styleforgotpass.css">
 </head>
@@ -15,14 +22,14 @@
             <img src="../src/img/logoName.png" alt="logo name" height="20px">
         </div>
         <div class="title">
-            Forgot Password
+            OTP VERIFICATION
         </div>
-        <form class="form" action="resetpassword.html" method="GET">
+        <form class="form" action="../dashboard/Authentication.php" method="POST">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Enter your Email" required>
+                <label for="email">Enter OTP</label>
+                <input type="number" name="otp" placeholder="OTP" required>
             </div>
-            <button class="form-submit-btn" type="submit">Send Email</button>
+            <button class="form-submit-btn" name="otp_sent" type="submit">Verify Account</button>
         </form>
         
 
