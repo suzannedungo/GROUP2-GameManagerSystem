@@ -54,7 +54,7 @@ if($_GET["tokencode"] !== $account_info["tokencode"]) {
         <div class="title">
             Reset Password
         </div>
-        <form class="form" action="index.html" method="GET">
+        <form class="form" action="../dashboard/Authentication.php" method="POST">
             <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
             <input type="hidden" name="tokencode" value="<?= $_GET['tokencode'] ?>">
             <div class="form-group">

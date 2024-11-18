@@ -241,7 +241,7 @@ class Authentication {
     echo "
       <script>
         alert('We Have Sent You A Reset Password.');
-        window.location.href = '../page/forgot-password.php';
+        window.location.href = '../page/forgotpassword.php';
       </script>
     ";
   }
@@ -251,13 +251,13 @@ class Authentication {
       echo "
         <script>
           alert(\"Password Must Have At Least 8 Characters.\");
-          window.location.href = \"../page/reset-password.php?id={$id}&tokencode={$tokencode}\";
+          window.location.href = \"../page/resetpassword.php?id={$id}&tokencode={$tokencode}\";
         </script>
       ";
       exit();
     }
 
-    $stmt = $this->database->prepare("UPDATE user SET password = :password, tokencode = :tokencode WHERE id = :id");
+    $stmt = $this->database->prepare("UPDATE account SET password = :password, tokencode = :tokencode WHERE id = :id");
     $stmt->execute([
       ":password" => $this->hashPwd($new_pass),
       ":tokencode" => $this->generateTC(),
