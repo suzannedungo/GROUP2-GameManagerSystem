@@ -232,27 +232,27 @@ ul li:hover ul.dropdown{
 }
 
 .game-list-item-title {
-  background-color: #333;
   padding: 0 10px;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: bold;
   position: absolute;
-  top: 10%;
-  left: 50px;
+  top: 15%;
+  left: 20px;
   opacity: 0;
   transition: 1s all ease-in-out;
+  z-index: 2;
 }
 
 .game-list-item-desc {
-  background-color: #333;
   padding: 10px;
-  font-size: 14px;
+  font-size: 13.5px;
   position: absolute;
-  top: 30%;
-  left: 50px;
-  width: 230px;
+  top: 40%;
+  left: 20px;
+  width: 250px;
   opacity: 0;
   transition: 1s all ease-in-out;
+  z-index: 2;
 }
 
 .game-list-item-button {
@@ -264,9 +264,10 @@ ul li:hover ul.dropdown{
   border: none;
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
-  left: 50px;
+  bottom: 10px;
+  left: 30px;
   opacity: 0;
+  width: 100px;
   transition: 1s all ease-in-out;
 }
 
