@@ -12,6 +12,7 @@ body {
   background-color: black;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 .navbar-container {
@@ -75,6 +76,7 @@ ul li ul.dropdown{
   position: absolute;
   z-index: 999;
   display: none;
+  align-items: center;
 }
 
 ul li a:hover{
@@ -169,6 +171,7 @@ ul li:hover ul.dropdown{
   width: 200px;
 }
 
+
 .featured-desc {
   width: 500px;
   color: lightgray;
@@ -217,6 +220,7 @@ ul li:hover ul.dropdown{
 .game-list-item:hover .game-list-item-desc,
 .game-list-item:hover .game-list-item-button {
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .game-list-item-img {
@@ -306,6 +310,7 @@ ul li:hover ul.dropdown{
     background-color: white;
     transform: translateX(-20px);
 }
+
 
 @media only screen and (max-width: 940px){
     .menu-container{
