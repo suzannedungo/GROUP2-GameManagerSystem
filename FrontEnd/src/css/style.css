@@ -1,15 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --main-text-color: white;
+  --sectext-color: black;
+  --bgcolor: black;
+  --secbg-color: white;
+  --hoverbgcolor: #E0B0FF;
+  --sidebar-icon: white;
+  --btn-color: rgba(255, 255, 255, 0.865);
+  --btn-hover-color: rgba(255, 255, 255, 0.5);
+
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  margin: 0
 }
 
 .navbar {
   width: 100%;
-  height: 50px;
-  background-color: black;
+  height: 70px;
+  background-color: var(--bgcolor);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -20,17 +37,19 @@ body {
   align-items: center;
   padding: 0 50px;
   height: 100%;
-  color: white;
-  font-family: "Sen", sans-serif;
+  color: var(--main-text-color);
 }
 
-.logo-container {
+.logo-container img {
   flex: 1;
+  align-items: center;
+  height: 3rem;
 }
 
-.logo {
-  font-size: 30px;
-  color: #34064b;
+.logo-name h1 {
+  flex: 1;
+  align-items: center;
+  font-size: 40px;
 }
 
 .menu-container {
@@ -47,49 +66,54 @@ body {
   margin-right: 30px;
 }
 
-ul{
+ul {
   list-style: none;
-  background: black;
+
+  border-radius: 5px;
 }
 
-ul li{
+ul li {
   display: inline-block;
   position: relative;
 }
 
-ul li a{
+ul li a {
   display: block;
   padding: 0px 50px;
-  color: #fff;
   text-decoration: none;
-  text-align: left;
   font-size: 20px;
+  transition: font-size 0.3s ease, border-radius 0.3s ease;
 }
 
-ul li ul.dropdown li{
+ul li a:hover {
+  /*background-color: rgb(242, 231, 231);*/  /*<<- eto yung background color nung NAV hover, uncomment nyonalang if want nyo */
+  border-radius: 10px;
+  font-size: 23px;
+}
+
+ul li ul.dropdown li {
   display: block;
 }
 
-ul li ul.dropdown{
+ul li ul.dropdown {
   width: 100%;
-  background: black;
+  background: #21212189;
   position: absolute;
   z-index: 999;
   display: none;
   align-items: center;
+
 }
 
-ul li a:hover{
-  background: #34064b;
-}
-
-ul li:hover ul.dropdown{
+ul li:hover ul.dropdown {
   display: block;
+  border-radius: 10px;
 }
 
 .menu-list-item.active {
   font-weight: bold;
 }
+
 .profile-container {
   flex: 2;
   display: flex;
@@ -111,7 +135,7 @@ ul li:hover ul.dropdown{
 .toggle {
   width: 40px;
   height: 20px;
-  background-color: white;
+  background-color: var(--main-text-color);
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -126,7 +150,7 @@ ul li:hover ul.dropdown{
 .toggle-ball {
   width: 18px;
   height: 18px;
-  background-color: black;
+  background-color: var(--bgcolor);
   position: absolute;
   right: 1px;
   border-radius: 50%;
@@ -147,15 +171,21 @@ ul li:hover ul.dropdown{
 }
 
 .left-menu-icon {
-  color: white;
+  color: var(--sidebar-icon);
   font-size: 20px;
   margin-bottom: 40px;
+  transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Smooth transition */
+}
+
+.left-menu-icon:hover {
+  font-size: 30px;
+  margin-bottom: 35px; /* Modify this if you want a different margin on hover */
 }
 
 .container {
   background-color: #151515;
   min-height: calc(100vh - 50px);
-  color: white;
+  color: var(--main-text-color);
 }
 
 .content-container {
@@ -163,14 +193,20 @@ ul li:hover ul.dropdown{
 }
 
 .featured-content {
-  height: 50vh;
-  padding: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 70vh;
+  position: relative;
 }
+
 
 .featured-title {
   width: 200px;
+  padding-top: 40px;
+  padding-left: 40px;
 }
-
 
 .featured-desc {
   width: 500px;
@@ -179,8 +215,8 @@ ul li:hover ul.dropdown{
 }
 
 .featured-button {
-  background-color: #34064b;
-  color: white;
+  background-color: var(--btn-color);
+  color: var(--sectext-color);
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
@@ -214,6 +250,7 @@ ul li:hover ul.dropdown{
   transform: scale(1.2);
   margin: 0 30px;
   opacity: 0.5;
+  transition: ease-in 0.3s; /* animation ng hover ng games pampabilis*/
 }
 
 .game-list-item:hover .game-list-item-title,
@@ -257,8 +294,8 @@ ul li:hover ul.dropdown{
 
 .game-list-item-button {
   padding: 10px;
-  background-color:#34064b;
-  color: white;
+  background-color: var(--btn-color);
+  color: var(--sectext-color);
   border-radius: 10px;
   outline: none;
   border: none;
@@ -271,50 +308,75 @@ ul li:hover ul.dropdown{
   transition: 1s all ease-in-out;
 }
 
+.game-list-item-button:hover {
+  background-color: var(--btn-hover-color);
+  color: var(--sectext-color);
+}
+
 .arrow {
   font-size: 120px;
   position: absolute;
   top: 90px;
   right: 0;
-  color: lightgray;
+  color: rgba(255, 255, 255, 0.64);
   opacity: 0.5;
   cursor: pointer;
 }
 
+.arrow:hover {
+  position: absolute;
+  color: lightgrey;
+  cursor: pointer;
+}
+
+/************************************************************White Mode**************************/
+
 .container.active {
-  background-color: white;
+  background-color: var(--secbg-color);
 }
 
 .game-list-title.active {
-  color: black;
+  color: var(--sectext-color);
 }
 
 .navbar-container.active {
+  background-color: var(--secbg-color);
+  color: var(--sectext-color);
+}
+
+.sidebar.active {
+  background-color: var(--secbg-color);
+}
+
+.left-menu-icon.active {
+  color: var(--sectext-color);
+}
+
+.toggle.active {
+  background-color: var(--bgcolor);
+}
+
+.toggle-ball.active {
   background-color: white;
-
-  color: black;
+  transform: translateX(-20px);
 }
 
-.sidebar.active{
-    background-color: white;
+.container,
+.game-list-title,
+.navbar-container,
+.toggle {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
-.left-menu-icon.active{
-    color: black;
-}
-
-.toggle.active{
-    background-color: black;
-}
-
-.toggle-ball.active{
-    background-color: white;
-    transform: translateX(-20px);
+/* .toggle-ball white mode state */
+.toggle-ball.active {
+  background-color: white;
+  transform: translateX(-20px);
 }
 
 
-@media only screen and (max-width: 940px){
-    .menu-container{
-        display: none;
-    }
+@media only screen and (max-width: 940px) {
+  .menu-container {
+    display: none;
+  }
 }
