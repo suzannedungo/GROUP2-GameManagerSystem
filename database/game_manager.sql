@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
-  `username` varchar(250) DEFAULT NULL,
+  `username` varchar(250) NOT NULL,
   `profile_image` varchar(250) DEFAULT 'default_dp.jpg',
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `favorite_games` (
 --
 
 CREATE TABLE `game` (
-  `game_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `game_image` varchar(250) DEFAULT 'default-game-icon.jpg',
   `info` text NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `game_visited` (
 --
 
 CREATE TABLE `genre` (
-  `genre_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -133,7 +133,7 @@ CREATE TABLE `genre` (
 CREATE TABLE `logs` (
   `id` int(11) NOT NULL,
   `account_id` int(11) NOT NULL,
-  `activities_users_admins` varchar(500) NOT NULL,
+  `activities` varchar(500) NOT NULL,
   `date_added` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,7 +181,7 @@ ALTER TABLE `favorite_games`
 -- Indexes for table `game`
 --
 ALTER TABLE `game`
-  ADD PRIMARY KEY (`game_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `game_genre`
