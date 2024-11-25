@@ -5,7 +5,7 @@ class Database {
     $pdo = null;
 
     try {
-      $pdo = new PDO("mysql:host=localhost;dbname=game_manager", "root", "");
+      $pdo = new PDO("mysql:host=localhost;dbname=game_manager1", "root", "");
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(Exception $pdo_err) {
       echo 
