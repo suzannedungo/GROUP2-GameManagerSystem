@@ -1,9 +1,8 @@
 <?php
 include_once __DIR__ . "/../../config/settings.php";
 include_once __DIR__ . "/../Authentication.php";
-require_once __DIR__ . "/../../config/Database.php";
 
-Authentication::checkAccNotLoggedIn("../../../../page/index.php");
+Authentication::checkAccNotLoggedIn("../../page/index.php");
 Authentication::redirectAdminPage();
 
 if(!isset($_GET["id"])) {
@@ -11,7 +10,9 @@ if(!isset($_GET["id"])) {
   exit();
 }
 
+require_once __DIR__ . "/../../config/Database.php";
 $db = Database::connect();
+
 $account = $_SESSION["signed_in_acc"];
 
 $stmt = $db->prepare("SELECT * FROM game_visited WHERE game_id = :gid AND user_id = :uid");
@@ -63,13 +64,14 @@ $game = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $game["name"] ?></title>
+  <link rel="icon" href="../../src/img/voidlogo.png.png">
+  <title><?= $game["name"] ?> | Void</title>
 </head>
 <body>
-  <img src="<?= $game["image"] ?>" alt="<?= $game["image"] ?>">
+  <img src="../../src/uploads/games_images/<?= $game["game_image"] ?>" alt="<?= $game["game_image"] ?>">
   <h1><?= $game["name"] ?></h1>
   <p><?= $game["info"] ?></p>
-  <a href="<?= $game["dl_link"] ?>">Download</a>
+  <a href="<?= $game["download_link"] ?>">Download</a>
   <hr>
   <h1>Responses</h1>
   <form action="./game.php?id=<?= $_GET['id'] ?>" method="POST">
@@ -81,7 +83,7 @@ $game = $stmt->fetch(PDO::FETCH_ASSOC);
   </form>
   <div id="reviews_container">
     <?php
-      $stmt = $db->prepare("SELECT * FROM review WHERE game_id = :gid");
+      $stmt = $db->prepare("SELECT * FROM game_review WHERE game_id = :gid");
       $stmt->execute([":gid" => $game["id"]]);
       if($stmt->rowCount() <= 0) {
         echo "<i>No reviews yet.</i>";
