@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 25, 2024 at 01:46 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1:3307
+-- Generation Time: Nov 28, 2024 at 11:08 AM
+-- Server version: 11.3.2-MariaDB
+-- PHP Version: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `game_managersss`
+-- Database: `game_manager`
 --
 
 -- --------------------------------------------------------
@@ -27,8 +27,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-CREATE TABLE `account` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `username` varchar(250) NOT NULL,
   `profile_image` varchar(250) DEFAULT 'default_dp.jpg',
@@ -37,8 +38,11 @@ CREATE TABLE `account` (
   `tokencode` varchar(250) NOT NULL,
   `status` enum('not_verified','verified') NOT NULL DEFAULT 'not_verified',
   `type` enum('user','admin') DEFAULT 'user',
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `account`
@@ -54,10 +58,13 @@ INSERT INTO `account` (`id`, `name`, `username`, `profile_image`, `email`, `pass
 -- Table structure for table `favorite_games`
 --
 
-CREATE TABLE `favorite_games` (
+DROP TABLE IF EXISTS `favorite_games`;
+CREATE TABLE IF NOT EXISTS `favorite_games` (
   `user_id` int(11) NOT NULL,
   `game_id` int(11) NOT NULL,
-  `date_added` datetime DEFAULT current_timestamp()
+  `date_added` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`user_id`,`game_id`),
+  KEY `favorite_games_ibfk_2` (`game_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,13 +73,15 @@ CREATE TABLE `favorite_games` (
 -- Table structure for table `game`
 --
 
-CREATE TABLE `game` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `game`;
+CREATE TABLE IF NOT EXISTS `game` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `game_image` varchar(250) DEFAULT 'default-game-icon.jpg',
   `info` text NOT NULL,
   `download_link` varchar(250) NOT NULL,
-  `date_added` datetime DEFAULT current_timestamp()
+  `date_added` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -81,9 +90,12 @@ CREATE TABLE `game` (
 -- Table structure for table `game_genre`
 --
 
-CREATE TABLE `game_genre` (
+DROP TABLE IF EXISTS `game_genre`;
+CREATE TABLE IF NOT EXISTS `game_genre` (
   `game_id` int(11) NOT NULL,
-  `genre_id` int(11) NOT NULL
+  `genre_id` int(11) NOT NULL,
+  PRIMARY KEY (`game_id`,`genre_id`),
+  KEY `game_genre_ibfk_2` (`genre_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -92,13 +104,17 @@ CREATE TABLE `game_genre` (
 -- Table structure for table `game_review`
 --
 
-CREATE TABLE `game_review` (
-  `id` int(11) NOT NULL,
-  `game_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+DROP TABLE IF EXISTS `game_review`;
+CREATE TABLE IF NOT EXISTS `game_review` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `game_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `comment` text DEFAULT NULL,
-  `date_added` datetime DEFAULT current_timestamp()
+  `date_added` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `game_review_ibfk_1` (`game_id`),
+  KEY `game_review_ibfk_2` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -107,10 +123,13 @@ CREATE TABLE `game_review` (
 -- Table structure for table `game_visited`
 --
 
-CREATE TABLE `game_visited` (
+DROP TABLE IF EXISTS `game_visited`;
+CREATE TABLE IF NOT EXISTS `game_visited` (
   `user_id` int(11) NOT NULL,
   `game_id` int(11) NOT NULL,
-  `visited_at` datetime DEFAULT current_timestamp()
+  `visited_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`user_id`,`game_id`),
+  KEY `game_visited_ibfk_2` (`game_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -119,9 +138,11 @@ CREATE TABLE `game_visited` (
 -- Table structure for table `genre`
 --
 
-CREATE TABLE `genre` (
-  `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL
+DROP TABLE IF EXISTS `genre`;
+CREATE TABLE IF NOT EXISTS `genre` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -130,11 +151,14 @@ CREATE TABLE `genre` (
 -- Table structure for table `logs`
 --
 
-CREATE TABLE `logs` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
-  `activities` varchar(500) NOT NULL,
-  `date_added` datetime DEFAULT current_timestamp()
+  `activity` varchar(500) NOT NULL,
+  `date_added` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`,`account_id`),
+  KEY `logs_ibfk_1` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -143,13 +167,15 @@ CREATE TABLE `logs` (
 -- Table structure for table `smtp_user`
 --
 
-CREATE TABLE `smtp_user` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `smtp_user`;
+CREATE TABLE IF NOT EXISTS `smtp_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(150) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `smtp_user`
@@ -159,112 +185,6 @@ INSERT INTO `smtp_user` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 (1, 'VOID', 'noreplyvoid367@gmail.com', 'quyh wvtd dwef hvsv', '2024-11-16 09:18:09');
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `account`
---
-ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `favorite_games`
---
-ALTER TABLE `favorite_games`
-  ADD PRIMARY KEY (`user_id`,`game_id`),
-  ADD KEY `game_id` (`game_id`);
-
---
--- Indexes for table `game`
---
-ALTER TABLE `game`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `game_genre`
---
-ALTER TABLE `game_genre`
-  ADD PRIMARY KEY (`game_id`,`genre_id`),
-  ADD KEY `genre_id` (`genre_id`);
-
---
--- Indexes for table `game_review`
---
-ALTER TABLE `game_review`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `game_id` (`game_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `game_visited`
---
-ALTER TABLE `game_visited`
-  ADD PRIMARY KEY (`user_id`,`game_id`),
-  ADD KEY `game_id` (`game_id`);
-
---
--- Indexes for table `genre`
---
-ALTER TABLE `genre`
-  ADD PRIMARY KEY (`genre_id`);
-
---
--- Indexes for table `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`id`,`account_id`),
-  ADD KEY `account_id` (`account_id`);
-
---
--- Indexes for table `smtp_user`
---
-ALTER TABLE `smtp_user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `account`
---
-ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `game`
---
-ALTER TABLE `game`
-  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `game_review`
---
-ALTER TABLE `game_review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `genre`
---
-ALTER TABLE `genre`
-  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `logs`
---
-ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `smtp_user`
---
-ALTER TABLE `smtp_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- Constraints for dumped tables
 --
 
@@ -272,35 +192,45 @@ ALTER TABLE `smtp_user`
 -- Constraints for table `favorite_games`
 --
 ALTER TABLE `favorite_games`
-  ADD CONSTRAINT `favorite_games_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `favorite_games_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`game_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `favorite_games_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `favorite_games_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `game_genre`
 --
 ALTER TABLE `game_genre`
-  ADD CONSTRAINT `game_genre_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`game_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `game_genre_ibfk_2` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `game_genre_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `game_genre_ibfk_2` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `game_review`
 --
 ALTER TABLE `game_review`
-  ADD CONSTRAINT `game_review_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`game_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `game_review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `game_review_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `game_review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `game_visited`
 --
 ALTER TABLE `game_visited`
-  ADD CONSTRAINT `game_visited_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `game_visited_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`game_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `game_visited_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `game_visited_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `logs`
 --
 ALTER TABLE `logs`
-  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+DELIMITER $$
+--
+-- Events
+--
+DROP EVENT IF EXISTS `delete_unv_acc`$$
+CREATE DEFINER=`root`@`localhost` EVENT `delete_unv_acc` ON SCHEDULE EVERY 1 MINUTE STARTS '2024-11-16 13:34:01' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM account
+WHERE account.status = 'not_verified' AND account.created_at < NOW() - INTERVAL 3 DAY$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
