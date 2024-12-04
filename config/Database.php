@@ -11,7 +11,7 @@ class Database {
       echo 
       "<script>
         alert(\"{$pdo_err->getMessage()}\");
-        window.location.href = \"../page/index.php\";
+        window.location.href = \"../../page/index.php\";
       </script>";
       exit();
     }

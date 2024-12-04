@@ -283,12 +283,12 @@ class Authentication {
     }
   }
 
-  public static function checkAccNotLoggedIn() {
+  public static function checkAccNotLoggedIn($redirect) {
     if(!isset($_SESSION["signed_in_acc"])) {
       echo 
       "<script>
         alert(\"No account is signed in.\");
-        window.location.href = \"../../page/index.php\";
+        window.location.href = \"{$redirect}\";
       </script>";
       exit();
     }
