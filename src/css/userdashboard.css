@@ -134,10 +134,18 @@ ul li:hover ul.dropdown {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;  /* Needed for absolute positioning of dropdown */
 }
 
 .profile-text-container {
   margin: 0 20px;
+  cursor: pointer;  /* Indicates that the text is clickable */
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.profile-text-container:hover {
+  font-size: 20px;
+  color: var(--hoverbgcolor);
 }
 
 .profile-picture {
@@ -146,6 +154,53 @@ ul li:hover ul.dropdown {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.fas.fa-caret-down {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  display: none;  /* Hidden by default */
+  position: absolute;
+  top: 100%;  /* Position it below the profile text */
+  right: 0;   /* Align it to the right of the profile picture */
+  background: #21212189;
+  border-radius: 5px;
+  z-index: 1;
+  min-width: 150px;
+}
+
+.dropdown-container{
+  position: relative;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--main-text-color);
+  display: block;
+  display: flex;
+  align-items: center;
+  transition: font-size 0.3s ease, border-radius 0.3s ease;
+}
+
+.dropdown-item:hover {
+  color: var(--hoverbgcolor);
+  border-radius: 5px;
+  font-size: 20px;
+} 
+
+/* Show dropdown on hover */
+.dropdown-container:hover .dropdown-menu {
+  display: block;
+}
+
+.toggle {
+  margin-top: 10px;
+}
+
 
 .toggle {
   width: 40px;
@@ -195,6 +250,7 @@ ul li:hover ul.dropdown {
 .left-menu-icon:hover {
   font-size: 30px;
   margin-bottom: 35px; /* Modify this if you want a different margin on hover */
+  color: var(--hoverbgcolor);
 }
 
 .container {
@@ -372,6 +428,22 @@ ul li:hover ul.dropdown {
   color: var(--sectext-color);
 }
 
+.dropdown-item.active {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--sectext-color);
+  display: block;
+  display: flex;
+  align-items: center;
+  transition: font-size 0.3s ease, border-radius 0.3s ease;
+}
+
+.dropdown-item:hover.active {
+  color: var(--hoverbgcolor);
+  border-radius: 5px;
+  font-size: 20px;
+} 
+
 .sidebar.active {
   background-color: var(--secbg-color);
 }
@@ -380,7 +452,7 @@ ul li:hover ul.dropdown {
   flex: 1;
   align-items: center;
   height: 3rem;
-  background-image: url(../../src/img/blkLN.png);
+  background-image: url(../img/blckLM.png);
   background-size: 70%; /* Sets the background image size to 50% of the container width/height */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image within the container */
@@ -388,7 +460,11 @@ ul li:hover ul.dropdown {
 .left-menu-icon.active {
   color: var(--sectext-color);
 }
-
+.left-menu-icon:hover.active {
+  font-size: 30px;
+  margin-bottom: 35px; /* Modify this if you want a different margin on hover */
+  color: var(--hoverbgcolor);
+}
 .toggle.active {
   background-color: var(--bgcolor);
 }
