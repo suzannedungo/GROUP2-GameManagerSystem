@@ -69,7 +69,6 @@ if ($_SESSION["signed_in_acc"]["profile_image"] !== "default_dp.jpg") {
           </div>
         </div>
 
-
         <div class="toggle">
           <i class="fas fa-moon toggle-icon"></i>
           <i class="fas fa-sun toggle-icon"></i>
