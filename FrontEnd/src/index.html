@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/style.css">
-    <link rel="icon" href="src/img/voidlogo.png.png">
+    <link rel="icon" href="../../src/img/voidlogo.png.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <title>Void</title>
 </head>
@@ -35,11 +35,20 @@
                         </li>
                 </div>
                 <div class="profile-container">
-                    <img class="profile-picture" src="../src/img/pfp.png" alt="Profile Picture">
+                    <img class="profile-picture" src="img/pfp.png" alt="Profile Picture">
+                  </div>
+          
+                  <div class="dropdown-container">
                     <div class="profile-text-container">
-                        <span class="profile-text">Profile</span>
-                        <i class="fas fa-caret-down"></i>
+                      <span class="profile-text">Profile</span>
+                      <i class="fas fa-caret-down"></i>
                     </div>
+                    <!-- Dropdown Menu -->
+                    <div class="dropdown-menu">
+                      <a href="/view-profile" class="dropdown-item">View Profile</a>
+                      <a href="/logout" class="dropdown-item">Log Out</a>
+                    </div>
+                  </div>
                     <div class="toggle">
                         <i class="fas fa-moon toggle-icon"></i>
                         <i class="fas fa-sun toggle-icon"></i>
