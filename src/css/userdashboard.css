@@ -48,7 +48,7 @@ body {
   flex: 1;
   align-items: center;
   height: 3rem;
-  background-image: url(../../src/img/logoName.png);
+  background-image: url(../../../src/img/logoName.png);
   background-size: 70%; /* Sets the background image size to 50% of the container width/height */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image within the container */
@@ -250,6 +250,7 @@ ul li:hover ul.dropdown {
   font-size: 30px;
   margin-bottom: 35px; /* Modify this if you want a different margin on hover */
   color: var(--hoverbgcolor);
+  cursor: pointer;
 }
 
 .container {
@@ -410,9 +411,18 @@ ul li:hover ul.dropdown {
   color: var(--sectext-color);
 }
 
+.game-list-item-title.active {
+    color: var(--sectext-color);
+}
+
+.game-list-item-desc.active{
+    color: var(--sectext-color);
+}
+
 .menu-list-item a.active{
   color: var(--sectext-color);
 }
+
 
 .navbar-container.active {
   background-color: var(--secbg-color);
@@ -423,9 +433,6 @@ ul li:hover ul.dropdown {
   color: var(--hoverbgcolor);
 }
 
-.game-list-title.active {
-  color: var(--sectext-color);
-}
 
 .dropdown-item.active {
   padding: 8px 16px;
@@ -451,7 +458,7 @@ ul li:hover ul.dropdown {
   flex: 1;
   align-items: center;
   height: 3rem;
-  background-image: url(../img/blckLM.png);
+  background-image: url(../../../src/img/blkLN.png);
   background-size: 70%; /* Sets the background image size to 50% of the container width/height */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image within the container */
