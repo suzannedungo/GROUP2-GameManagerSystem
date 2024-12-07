@@ -288,6 +288,7 @@ img {
     }
 }
 
+
 /* For large devices (desktops and larger screens) */
 @media (min-width: 1024px) {
     .game-title h1 {
@@ -331,16 +332,76 @@ img {
     }
 }
 
+/*********** ABOUT THIS GAME *************/
+.about-container {
+    background-color: #202020; 
+    color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin: 30px auto;
+    width: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial', sans-serif;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about-container h3 {
+    font-size: 24px;
+    color: var(--sec-color);
+    margin-bottom: 15px;
+    text-align: left;
+    border-bottom: 3px solid var(--sec-color);
+    padding-bottom: 5px;
+}
+
+.about-container p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.about-container .genre-section {
+    font-size: 16px;
+    color: var(--sec-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.about-container .game-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        width: 90%;
+    }
+
+    .about-container h3 {
+        font-size: 20px;
+    }
+
+    .about-container p {
+        font-size: 14px;
+    }
+}
+
+
+/*********** CONTAINER OF SLIDER AND COMMENT/REVIEW SECTION*************/
 .content-container {
-    display: flex; /* Align child elements in a row */
-    gap: 5px; /* Space between slider and comment section */
+    display: flex; 
+    gap: 5px;
     justify-content: space-between;
-    align-items: flex-start; /* Align items at the top */
+    align-items: flex-start;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px;
     max-width: 90%;
 }
 
+/*********** COMMENT AND REVIEW SECTION *************/
 .comment-section {
     margin-top: 50px;
     margin-left: 60px;
@@ -424,26 +485,6 @@ img {
     background-color: var(--main-color);
 }
 
-/* Username input */
-.review-form .username-input {
-    width: 580px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 2px solid var(--sec-color);
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    color: var(--main-text-color);
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.review-form .username-input:focus {
-    border-color: var(--main-color);
-    box-shadow: 0 0 8px var(--main-color);
-    outline: none;
-}
-
 
 /* Submitted reviews styling */
 .submitted-reviews ul li {
@@ -490,3 +531,4 @@ img {
     font-size: 14px;
     margin-top: 5px;
 }
+
