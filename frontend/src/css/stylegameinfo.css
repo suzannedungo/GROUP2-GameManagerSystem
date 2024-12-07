@@ -5,7 +5,7 @@
 :root {
     --main-text-color: white;
     --sectect-color: black;
-    --main-color: #6c5094;
+    --main-color: #8455c4;
     --sec-color: #b48cfc;
     --btn-hover-color: #6f559d;
 }
@@ -130,11 +130,12 @@ img {
 
 .game-title {
     position: absolute;
-    top: 15%; /*adjust how far form left is the title*/
-    left: 12%; /*adjust how far form left is the title*/
+    top: 75px; /*adjust how far form left is the title*/
+    left: 235px; /*adjust how far form left is the title*/
     transform: translateX(-50%); /* Center it horizontally */
     text-align: center;
     color: var(--main-text-color);
+    z-index: 1;
 }
 
 .game-title h1 {
@@ -164,33 +165,37 @@ img {
 
 .download-button-conntainer {
     padding-top: 15px;
-    padding-right: 2%;
+    justify-content: center;
+    align-items: center;
 }
 
-.download-button {
+.download-button-conntainer a {
     background-color: var(--sec-color);
-    width: 210px;
-    height: 40px;
+    font-size: small;
     border: none;
     border-radius: 20px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: background-color 0.3s ease;
 }
 
-.download-button a {
+.download-button-conntainer span,a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     color: var(--main-text-color);
 }
 
-.download-button:hover {
+.download-button-conntainer a:hover{
     background-color: var(--main-color);
 }
 
 .terms {
     position: absolute;
-    top: 37%;
-    left: 6%;
+    top: 185px;
+    left: 48px;
     color: var(--main-text-color);
     z-index: 20; /* Ensure it stays above other elements if needed */
 }
