@@ -51,7 +51,7 @@ if($_SESSION["signed_in_acc"]["profile_image"] !== "default_dp.jpg") {
                         </li>
                 </div>
                 <div class="profile-container">
-                    <img class="profile-picture" src="<?= $dp_path ?>" alt="Profile Picture">
+                    <a href="./userprofile.php"><img class="profile-picture" src="<?= $dp_path ?>" alt="Profile Picture"></a>
                     <div class="profile-text-container">
                         <span class="profile-text">Profile</span>
                         <i class="fas fa-caret-down"></i>

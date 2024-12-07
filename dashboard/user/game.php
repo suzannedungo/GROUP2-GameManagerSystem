@@ -35,16 +35,6 @@ if($stmt->rowCount() <= 0) {
   ]);
 }
 
-if(isset($_POST["submit_review"])) {
-  $stmt = $db->prepare("INSERT INTO review(game_id, user_id, rating, comment) VALUES(:gid, :uid, :rating, :comment)");
-  $stmt->execute([
-    ":gid" => $_POST["game_id"],
-    ":uid" => $_POST["user_id"],
-    ":rating" => $_POST["rating"],
-    ":comment" => $_POST["comment"],
-  ]);
-}
-
 $stmt = $db->prepare("SELECT * FROM game WHERE id = :id");
 $stmt->execute([":id" => $_GET["id"]]);
 if($stmt->rowCount() <= 0) {
@@ -58,6 +48,36 @@ if($stmt->rowCount() <= 0) {
 }
 
 $game = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = $db->prepare("SELECT * FROM favorite_games WHERE user_id = :uid AND game_id = :gid");
+$stmt->execute([
+  ":uid" => $account["id"],
+  ":gid" => $game["id"]
+]);
+
+$fav_res = null;
+if($stmt->rowCount() > 0) {
+  $fav_res = "checked";
+}
+
+$stmt = $db->prepare("SELECT * FROM game_review WHERE user_id = :uid AND game_id = :gid");
+$stmt->execute([
+  ":uid" => $account["id"],
+  ":gid" => $game["id"]
+]);
+
+$has_review = false;
+if($stmt->rowCount() > 0) {
+  $has_review = true;
+}
+
+$stmt = $db->prepare("SELECT AVG(`rating`) as avg_rating FROM game_review");
+$stmt->execute();
+$rating = $stmt->fetch(PDO::FETCH_ASSOC);
+$rating = intval($rating["avg_rating"]);
+if(!$rating) {
+  $rating = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,44 +88,33 @@ $game = $stmt->fetch(PDO::FETCH_ASSOC);
   <title><?= $game["name"] ?> | Void</title>
 </head>
 <body>
+  <input type="hidden" name="game_id" id="game_id" value="<?= $game["id"] ?>">
+  <input type="hidden" name="user_id" id="user_id" value="<?= $account["id"] ?>">
+  <input type="hidden" name="has_review" id="has_review" value="<?= $has_review ?>">
+
   <img src="../../src/uploads/games_images/<?= $game["game_image"] ?>" alt="<?= $game["game_image"] ?>">
   <h1><?= $game["name"] ?></h1>
   <p><?= $game["info"] ?></p>
+  <p><?= $rating ?></p>
+  <input type="checkbox" name="favorite" id="favorite" <?= $fav_res ?> />
+  <label for="favorite">Add to Favorites</label>
+  <br>
   <a href="<?= $game["download_link"] ?>">Download</a>
   <hr>
   <h1>Responses</h1>
-  <form action="./game.php?id=<?= $_GET['id'] ?>" method="POST">
-    <input type="hidden" name="game_id" value="<?= $game["id"] ?>">
-    <input type="hidden" name="user_id" value="<?= $account["id"] ?>">
-    <input type="number" name="rating" id="rating" required>
-    <textarea name="comment" id="comment"></textarea>
-    <input type="submit" value="Send" name="submit_review">
-  </form>
-  <div id="reviews_container">
-    <?php
-      $stmt = $db->prepare("SELECT * FROM game_review WHERE game_id = :gid");
-      $stmt->execute([":gid" => $game["id"]]);
-      if($stmt->rowCount() <= 0) {
-        echo "<i>No reviews yet.</i>";
-      } else {
-        $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach($reviews as $review) {
-          $stmt = $db->prepare("SELECT profile_image, username FROM account WHERE id = :id");
-          $stmt->execute([":id" => $review["user_id"]]);
-          $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-          echo
-          "<div>
-            <img src=\"{$user['profile_image']}\" alt=\"{$user['profile_image']}\">
-            <h4>{$user['username']}</h4>
-            <p>{$review['rating']}</p>
-            <p>{$review['comment']}</p>
-            <p>{$review['created_at']}</p>
-          </div>";
-        }
-      }
-    ?>
+  <div id="review_form">
+    <form>
+      <input type="number" name="rating" id="rating" required>
+      <textarea name="comment" id="comment"></textarea>
+      <input type="submit" name="submit_review" id="submit_review" value="Send">
+    </form>
+    <p id="error_message"></p>
   </div>
+
+  <div id="reviews_container">
+  </div>
+
+  <script src="../../src/js/jquery-3.7.1.min.js"></script>
+  <script src="../../src/js/game-page-data-process.js"></script>
 </body>
 </html>

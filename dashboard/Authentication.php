@@ -14,10 +14,10 @@ class Authentication {
   }
 
   public function signup($name, $username, $email, $password) {
-    $this->checkInputEmpty($name, "name");
-    $this->checkInputEmpty($username, "username");
-    $this->checkInputEmpty($email, "email");
-    $this->checkInputEmpty($password, "password");
+    self::checkInputEmpty($name, "name", "../page/index.php");
+    self::checkInputEmpty($username, "username", "../page/index.php");
+    self::checkInputEmpty($email, "email", "../page/index.php");
+    self::checkInputEmpty($password, "password", "../page/index.php");
 
     $this->checkPwdLen($password);
     $username = strtolower($username);
@@ -84,8 +84,8 @@ class Authentication {
   }
 
   public function signin($email, $password) {
-    $this->checkInputEmpty($email, "email");
-    $this->checkInputEmpty($password, "password");
+    self::checkInputEmpty($email, "email", "../page/index.php");
+    self::checkInputEmpty($password, "password", "../page/index.php");
 
     $this->checkPwdLen($password);
 
@@ -335,12 +335,12 @@ class Authentication {
   }
   
   // Update this with pop up window instead of alert.
-  private function checkInputEmpty($str_input, $input_name) {
+  public static function checkInputEmpty($str_input, $input_name, $redirect) {
     if(strlen($str_input) <= 0 || $str_input === "" || $str_input === null) {
       echo
       "<script>
         alert(\"Do not leave '{$input_name}' input blank.\");
-        window.location.href = \"../page/index.php\";
+        window.location.href = \"{$redirect}\";
       </script>";
       exit();
     }
