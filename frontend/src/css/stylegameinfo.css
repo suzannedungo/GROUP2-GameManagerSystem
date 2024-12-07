@@ -131,42 +131,72 @@ img {
 .game-title {
     position: absolute;
     top: 75px; /*adjust how far form left is the title*/
-    left: 235px; /*adjust how far form left is the title*/
+    left: 20%; /*adjust how far form left is the title*/
     transform: translateX(-50%); /* Center it horizontally */
     text-align: center;
     color: var(--main-text-color);
     z-index: 1;
+    width: 100%;
 }
 
 .game-title h1 {
-    font-size: 55px;
-    padding-left: 250px;
+    font-size: 40px;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.game-title h4 {
-    padding-top: 15px;
+.game-title h3 {
+    padding-top: 10px;
     color: var(--main-color);
 }
 
+.game-title h4 {
+    position: relative; /* Relative positioning to adjust within its parent */
+    top: -20px; /* Move it upwards by reducing this value */
+    left: 50%;
+    padding-top: 0; /* Remove extra padding if any */
+    color: var(--main-color);
+    font-size: 18px; /* Keep a consistent size */
+    text-align: center; /* Center-align if needed */
+}
+
 .game-icon img {
-    position: absolute;
+    position: absolute; 
+    top: 110px;
+    left: 37%; 
+    transform: translateX(-50%); 
     height: 70px;
     width: 70px;
-    padding-top: 15px;
-    left: 34%;
+    z-index: 2; 
 }
 
 .game-rating {
-    padding-left: 10%;
+    position: absolute;
+    top: 95px; 
+    left: 43%; 
+    transform: translateX(-50%); 
+    font-size: 20px;
+    color: orange;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    z-index: 2; 
     font-size: 20px;
     padding-top: 4%;
     color: orange;
 }
 
 .download-button-conntainer {
-    padding-top: 15px;
+    position: absolute; 
+    top: 180px; 
+    left: 41%; 
+    transform: translateX(-50%); 
     justify-content: center;
     align-items: center;
+    z-index: 2; 
+    padding-top: 20px; 
 }
 
 .download-button-conntainer a {
@@ -175,10 +205,7 @@ img {
     border: none;
     border-radius: 20px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 10px 50px; /* Padding for button size */
     transition: background-color 0.3s ease;
 }
 
@@ -194,148 +221,13 @@ img {
 
 .terms {
     position: absolute;
-    top: 185px;
+    top: 250 px;
     left: 48px;
     color: var(--main-text-color);
     z-index: 20; /* Ensure it stays above other elements if needed */
 }
 
-/* Responsive Styles */
 
-/* For small devices (phones) */
-@media (max-width: 600px) {
-    .game-title h1 {
-        font-size: 35px;
-        padding-left: 0;
-    }
-
-    .game-title h4 {
-        font-size: 16px;
-    }
-
-    .game-icon img {
-        max-height: 50px; /* Ensure icon height doesn't exceed 50px */
-        max-width: 50px;  /* Ensure icon width doesn't exceed 50px */
-        height: auto;     /* Maintain aspect ratio */
-        width: auto;      /* Maintain aspect ratio */
-        left: 35%;
-    }
-
-    .game-image-container img {
-        height: 40vh; /* Decrease image size on small devices */
-    }
-
-    .logoname {
-        width: 100px;
-        top: 15px;
-        left: 20px;
-    }
-
-    .game-rating {
-        font-size: 16px;
-        padding-left: 5%;
-    }
-
-    .download-button {
-        width: 180px;
-        height: 35px;
-    }
-
-    .terms {
-        position: absolute;
-        top: 30%;
-        left: 5%;
-        font-size: 14px;
-    }
-}
-
-/* For tablets (portrait and below) */
-@media (max-width: 768px) {
-    .game-title h1 {
-        font-size: 45px;
-    }
-
-    .game-title h4 {
-        font-size: 18px;
-    }
-
-    .game-icon img {
-        max-height: 60px; /* Ensure icon height doesn't exceed 60px */
-        max-width: 60px;  /* Ensure icon width doesn't exceed 60px */
-        height: auto;     /* Maintain aspect ratio */
-        width: auto;      /* Maintain aspect ratio */
-        left: 32%;
-    }
-
-    .logoname {
-        width: 120px;
-        top: 15px;
-        left: 25px;
-    }
-
-    .game-image-container img {
-        height: 45vh; /* Adjust image size for tablet screens */
-    }
-
-    .game-rating {
-        font-size: 18px;
-    }
-
-    .download-button {
-        width: 190px;
-        height: 38px;
-    }
-
-    .terms {
-        top: 35%;
-        left: 6%;
-        font-size: 15px;
-    }
-}
-
-
-/* For large devices (desktops and larger screens) */
-@media (min-width: 1024px) {
-    .game-title h1 {
-        font-size: 55px;
-    }
-
-    .game-title h4 {
-        font-size: 20px;
-    }
-
-    .game-icon img {
-        max-height: 70px; /* Ensure icon height doesn't exceed 70px */
-        max-width: 70px;  /* Ensure icon width doesn't exceed 70px */
-        height: auto;     /* Maintain aspect ratio */
-        width: auto;      /* Maintain aspect ratio */
-    }
-
-    .logoname {
-        width: 130px;
-        top: 20px;
-        left: 30px;
-    }
-
-    .game-image-container img {
-        height: 50vh;
-    }
-
-    .game-rating {
-        font-size: 20px;
-    }
-
-    .download-button {
-        width: 210px;
-        height: 40px;
-    }
-
-    .terms {
-        top: 37%;
-        left: 6%;
-        font-size: 16px;
-    }
-}
 
 /*********** ABOUT THIS GAME *************/
 .about-container {
