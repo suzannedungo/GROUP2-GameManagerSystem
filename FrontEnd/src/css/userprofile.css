@@ -53,11 +53,12 @@ body{
 .profile-container {
     margin-top: 30px;
     margin-left: 70px;
-    background-color: var(--profile-container-background);
+    background-color: #222;
     width: 850px;
     height: 480px;
     border-radius: 20px;
     position: relative;
+    margin-right: 30px;
 }
 
 .profile-pic img{
@@ -97,6 +98,7 @@ body{
     left: 70%;/* adjust left space*/
     padding-right: 90px;
     transform: translate(-50%, -50%); 
+    width: 40%;
 }
 
 .personal-info-container div {
@@ -153,6 +155,80 @@ body{
     text-decoration: none;
 }
 
+.content-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin: 20px 50px; 
+}
+
+.game-favorites-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #222;
+    width: 450px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.game-favorites-container h1 {
+    font-size: 30px;
+    color: var(--main-text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--btn-color);
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.game-card img {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.game-info h3 {
+    font-size: 20px;
+    color: var(--main-text-color);
+    margin-bottom: 5px;
+}
+
+.game-info h4 {
+    font-size: 18px;
+    color: var(--btn-color);
+    margin-bottom: 10px;
+}
+
+.ratings i {
+    font-size: 20px;
+    color: var(--hover-color);
+}
+
+.game-favorites-container h1 i{
+    font-size: 20px;
+    color: #f4d03f;
+}
+
+.divider {
+    width: 2px; 
+    background-color: var(--btn-color); 
+    margin: 0 20px; 
+    height: auto; 
+    align-self: stretch; 
+}
 
 
 
