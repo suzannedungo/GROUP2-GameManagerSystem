@@ -30,7 +30,7 @@ if($_GET["tokencode"] !== $account_info["tokencode"]) {
   echo "
     <script>
       alert(\"Invalid Token Code!\");
-      window.location.href = \"../page/index.php\";
+      window.close();
     </script>
   ";
   exit();

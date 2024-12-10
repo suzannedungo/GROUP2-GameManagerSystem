@@ -10,10 +10,7 @@ $db = Database::connect();
 
 $account = $_SESSION["signed_in_acc"];
 
-$dp_path = "../../src/uploads/default_dp.jpg";
-if($_SESSION["signed_in_acc"]["profile_image"] !== "default_dp.jpg") {
-  $dp_path = "../../src/uploads/" . $_SESSION["signed_in_acc"]["username"] . "/" . $_SESSION["signed_in_acc"]["profile_image"];
-}
+$dp_path = "../../src/uploads/users_images/{$account['profile_image']}";
 ?>
 <!DOCTYPE html>
 <html lang="en">

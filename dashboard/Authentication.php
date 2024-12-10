@@ -174,7 +174,7 @@ class Authentication {
     $this->smtp->sendEmail($receiver_email, $receiver_name, $subject, $message);
   }
 
-  public function verifyAdmin($otp) {
+  public function verifyAccount($otp) {
     if($_SESSION['otp'] != $otp) {
       echo "
         <script>
@@ -204,6 +204,11 @@ class Authentication {
 
     session_unset();
     session_destroy();
+
+    $user_dir = "uploads/users_images/" . $receiver_name;
+    if(!is_dir($user_dir)) {
+      mkdir("../{$user_dir}", 0777, true);
+    }
     
     echo "
       <script>
@@ -267,7 +272,7 @@ class Authentication {
     echo "
       <script>
         alert('Reset Password Successfully.');
-        window.location.href = '../page/index.php';
+        window.close();
       </script>
     ";
   }
@@ -380,7 +385,7 @@ if(isset($_GET["logout"])) {
 }
 
 if(isset($_POST['otp_sent'])) {
-  (new Authentication())->verifyAdmin($_POST['otp']);
+  (new Authentication())->verifyAccount($_POST['otp']);
 }
 
 if(isset($_POST['find_email'])) {

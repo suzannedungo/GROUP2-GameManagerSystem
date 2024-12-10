@@ -71,8 +71,8 @@ if($stmt->rowCount() > 0) {
   $has_review = true;
 }
 
-$stmt = $db->prepare("SELECT AVG(`rating`) as avg_rating FROM game_review");
-$stmt->execute();
+$stmt = $db->prepare("SELECT AVG(`rating`) as avg_rating FROM game_review WHERE game_id = :gid");
+$stmt->execute([":gid" => $game["id"]]);
 $rating = $stmt->fetch(PDO::FETCH_ASSOC);
 $rating = intval($rating["avg_rating"]);
 if(!$rating) {
@@ -85,6 +85,7 @@ if(!$rating) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../../src/img/voidlogo.png.png">
+  <link rel="stylesheet" href="../../popup_card/style.css">
   <title><?= $game["name"] ?> | Void</title>
 </head>
 <body>
@@ -114,7 +115,10 @@ if(!$rating) {
   <div id="reviews_container">
   </div>
 
+  <div id="popup_wrapper"></div>
+
   <script src="../../src/js/jquery-3.7.1.min.js"></script>
+  <script src="../../popup_card/script.js"></script>
   <script src="../../src/js/game-page-data-process.js"></script>
 </body>
 </html>

@@ -43,6 +43,19 @@ class Game {
     }
   }
 
+  public function getFiveFavorites($uid) {
+    $stmt = $this->db->prepare("SELECT game_id FROM favorite_games WHERE user_id = :uid LIMIT 5");
+    $stmt->execute([":uid" => $uid]);
+
+    if($stmt->rowCount() > 0) {
+      $gids = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      for($i = 0; $i < $stmt->rowCount(); $i++) {
+        print_r($gids);
+        // $stmt = $this->db->prepare("SELECT * FROM game WHERE id = :gid");
+      }
+    }
+  }
+
   public function getAllReviews($gid, $uid) {
     $stmt = $this->db->prepare("SELECT * FROM game_review WHERE game_id = :gid");
     $stmt->execute([":gid" => $gid]);

@@ -1,3 +1,5 @@
+// let popupCard = require("../../popup_card/script.js");
+
 $(document).ready(function() {
   $("#favorite").click(function() {
     if($(this).is(":checked")) {
@@ -9,7 +11,7 @@ $(document).ready(function() {
           uid: $("#user_id").val()
         },
         function() {
-          alert("Added to your favorites.");
+          popupCard("Added to your favorites.");
         }
       );
     } else {
@@ -22,7 +24,7 @@ $(document).ready(function() {
           uid: $("#user_id").val()
         },
         function() {
-          alert("Removed from your favorites.");
+          popupCard("Removed from your favorites.");
         }
       );
     }
@@ -51,6 +53,7 @@ $(document).ready(function() {
         },
         function() {
           has_review = true;
+          popupCard("Review Added.");
         }
       );
     }
@@ -72,6 +75,7 @@ $(document).ready(function() {
       },
       function() {
         has_review = false;
+          popupCard("Review Removed.");
       }
     );
 
