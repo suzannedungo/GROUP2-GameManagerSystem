@@ -99,12 +99,12 @@ body{
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin-top: 50px;
+    margin-top: 40px;
 
 }
 
 .personal-info-container div {
-    margin-bottom: 80px; /* Seperates Display name UserName and  */
+    margin-bottom: 50px; /* Seperates Display name UserName and  */
 }
 
 .personal-info-container h3 {
@@ -115,9 +115,10 @@ body{
 
 .personal-info-container h1 {
     margin-top: 5px; /* Adds space between the label (h3) and the (h1) */
-    font-size: 40px; 
+    font-size: 30px; 
     font-weight: normal; /* Optional: makes the h1 text lighter */
     color: var(--main-text-color);
+    padding-bottom: 10px;
 }
 
 .reset-pass{
@@ -203,7 +204,7 @@ body{
 }
 
 .game-info h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--main-text-color);
     margin-bottom: 5px;
 }
@@ -233,8 +234,139 @@ body{
 }
 
 
+.recently-viewed-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 90px;
+    width: 50%; /* Adjust width based on your layout */
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
 
+}
 
+.recently-viewed-container h1 {
+    font-size: 30px;
+    color: var(--main-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.recently-viewed-row {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures cards are in a single row */
+    gap: 15px; /* Space between game cards */
+    overflow-x: auto; /* Enables horizontal scrolling if content exceeds the container */
+    align-items: center;
+}
+
+.game-card2 {
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center;
+    width: 150px; /* Adjust width based on design */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.game-card2 img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin-bottom: 10px; /* Space between the logo and title */
+    object-fit: cover; /* Ensure the image fits nicely */
+}
+
+.game-info2 h3 {
+    font-size: 20x;
+    color: var(--main-text-color);
+    margin: 0;
+    text-align: center;
+}
+
+.recently-viewed-container i{
+    color: var(--btn-color);
+}
+
+.user-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.user-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.user-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.user-name a{
+    text-decoration: none;
+}
+
+.display-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.display-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.display-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.display-name a{
+    text-decoration: none;
+}
+
+.Email span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.Email a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.Email span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.Email a{
+    text-decoration: none;
+}
 
 
 
