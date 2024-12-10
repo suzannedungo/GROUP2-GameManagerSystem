@@ -20,12 +20,13 @@ arrows.forEach((arrow, i) => {
   console.log(Math.floor(window.innerWidth / 270));
 });
 
+
 //TOGGLE
 
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
-  ".container,.navbar,.menu-list-item a,.game-list-title,.game-list-item-title,.game-list-item-desc,.navbar-container,.sidebar,.left-menu-icon,.logo-container,.toggle"
-);
+    ".container,.navbar,.menu-list-item a,.game-list-title,.game-list-item-title,.game-list-item-desc,.navbar-container,.sidebar,.left-menu-icon,.logo-container,.toggle"
+  );
 
 ball.addEventListener("click", () => {
   items.forEach((item) => {

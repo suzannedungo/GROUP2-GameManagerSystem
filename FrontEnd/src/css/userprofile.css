@@ -1,0 +1,377 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+:root{
+    --nav-background:rgb(88, 88, 88);
+    --profile-container-background:rgb(88, 88, 88);
+    --main-text-color:white;
+    --sec-text-color:black; 
+    --btn-color:#b48cfc;
+    --hover-color:#b48cfc;
+    --sec-hover-color:#7d56c7;
+}
+
+body{
+    background-color: #151515
+}
+
+.navigations-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color:  var(--nav-background);
+    width: 100%;
+    height: 70px;
+}
+
+.navigations-container img{
+    width: auto;
+    height: 3rem;
+    position: relative;
+    left: 30px;
+
+}
+
+.home-button{
+    position: relative;
+    right: 25px;
+    font-size: 25px;
+}
+
+.home-button :hover{
+    color: var(--hover-color);
+    transition:0.3s ease;
+}
+
+.home-button a{
+    text-decoration: none;
+    color:var(--main-text-color) ;
+}
+
+.profile-container {
+    margin-top: 30px;
+    margin-left: 70px;
+    background-color: #222;
+    width: 850px;
+    height: 480px;
+    border-radius: 20px;
+    position: relative;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-evenly;  
+    align-items: center;
+}
+
+.profile-pic img{
+    height: 280px;
+    width: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 200px; 
+}
+
+.edit-profile-button{
+    position: relative;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color:var(--btn-color) ;
+    width: 190px;
+    text-align: center;
+    padding: 15px;
+    font-size: medium;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover{
+    background-color: var(--sec-hover-color);
+}
+
+.edit-profile-button a{
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+.personal-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 40px;
+
+}
+
+.personal-info-container div {
+    margin-bottom: 50px; /* Seperates Display name UserName and  */
+}
+
+.personal-info-container h3 {
+    margin: 0;
+    font-size: 20px; 
+    color: var(--btn-color);
+}
+
+.personal-info-container h1 {
+    margin-top: 5px; /* Adds space between the label (h3) and the (h1) */
+    font-size: 30px; 
+    font-weight: normal; /* Optional: makes the h1 text lighter */
+    color: var(--main-text-color);
+    padding-bottom: 10px;
+}
+
+.reset-pass{
+    margin-top: 80px;
+    margin-left: 70px;
+    width: 850px;
+}
+
+.reset-pass h1{
+    font-size: 50px;
+    color: var(--main-text-color);
+}
+
+.reset-pass-button{
+    position: relative;
+    margin-left: 30px;
+    margin-top: 20px;
+    background-color:var(--btn-color) ;
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+    font-size: medium;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.reset-pass-button:hover{
+    background-color: var(--sec-hover-color);
+}
+
+.reset-pass span{
+    font-size: 25px;
+    color: var(--main-text-color);
+}
+
+.reset-pass a{
+    text-decoration: none;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin: 20px 50px; 
+}
+
+.game-favorites-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #222;
+    width: 450px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.game-favorites-container h1 {
+    font-size: 30px;
+    color: var(--main-text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--btn-color);
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.game-card img {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.game-info h3 {
+    font-size: 22px;
+    color: var(--main-text-color);
+    margin-bottom: 5px;
+}
+
+.game-info h4 {
+    font-size: 18px;
+    color: var(--btn-color);
+    margin-bottom: 10px;
+}
+
+.ratings i {
+    font-size: 20px;
+    color: var(--hover-color);
+}
+
+.game-favorites-container h1 i{
+    font-size: 20px;
+    color: #f4d03f;
+}
+
+.divider {
+    width: 2px; 
+    background-color: var(--btn-color); 
+    margin: 0 20px; 
+    height: auto; 
+    align-self: stretch; 
+}
+
+
+.recently-viewed-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 90px;
+    width: 50%; /* Adjust width based on your layout */
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+
+}
+
+.recently-viewed-container h1 {
+    font-size: 30px;
+    color: var(--main-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.recently-viewed-row {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures cards are in a single row */
+    gap: 15px; /* Space between game cards */
+    overflow-x: auto; /* Enables horizontal scrolling if content exceeds the container */
+    align-items: center;
+}
+
+.game-card2 {
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center;
+    width: 150px; /* Adjust width based on design */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.game-card2 img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin-bottom: 10px; /* Space between the logo and title */
+    object-fit: cover; /* Ensure the image fits nicely */
+}
+
+.game-info2 h3 {
+    font-size: 20x;
+    color: var(--main-text-color);
+    margin: 0;
+    text-align: center;
+}
+
+.recently-viewed-container i{
+    color: var(--btn-color);
+}
+
+.user-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.user-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.user-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.user-name a{
+    text-decoration: none;
+}
+
+.display-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.display-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.display-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.display-name a{
+    text-decoration: none;
+}
+
+.Email span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.Email a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.Email span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.Email a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+

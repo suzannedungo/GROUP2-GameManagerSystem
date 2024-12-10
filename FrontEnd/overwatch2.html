@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/stylegameinfo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Overwatch 2</title>
+</head>
+
+<body>
+    <div class="gameinfo">
+        <div class="logoname">
+            <img src="src/img/logoName.png" alt=""> 
+        </div>
+        <div class="game-image-container">
+             <img src="/frontend/src/img/ow-bg.png" alt="game image"><!--GAME IMAGE-->
+            <div class="game-title">
+                <h1>Overwatch 2</h1>            <!--game title-->
+                <h3>BLIZZARD ENTERTAINMENT</h3>
+                <div class="game-icon">
+                    <img src="/frontend/src/img/ow2-icon.webp" alt="ICON"> <!--game icon-->
+                    <div class="game-rating">
+                        <h4>4/5</h4>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class="download-button-conntainer">
+                        <a href="https://overwatch.blizzard.com/en-us/" class="download-button-link">
+                            <span>Download now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="terms">
+            <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <h3>About This Game</h3>
+        <p class="genre-section">Genre: Shooting, Hero Shooter, Team-Based Shootert</p>
+        <p>
+        <em>Overwatch 2</em> is a team-based hero shooter that emphasizes fast-paced, objective-driven gameplay. 
+            Players choose from a diverse roster of unique Heroes, each with their own distinct abilities, roles, and playstyles,
+            to work together in teams to achieve objectives like capturing points or escorting payloads. The game focuses on strategic team
+             coordination, dynamic combat, and using each hero's abilities effectively to gain the upper hand in matches. Overwatch 2 introduces new maps,
+            updated mechanics, and a shift to a 5v5 format to enhance competitive balance and team synergy. With its colorful art style, engaging gameplay,
+            and team strategy, Overwatch 2 offers both competitive and casual players an action-packed experience.
+        </p>
+    </div>
+    
+    
+
+
+    <div class="content-container">
+        
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/ow1.webp">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/ow2.webp">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/ow3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/ow4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/ow5.jpg">
+                </div>
+            </div>
+        </div>
+    
+        <div class="comment-section">
+            <h3>Leave a Review</h3>
+            <form class="review-form">
+                <textarea placeholder="Write your comment here..." rows="5" required></textarea>
+                <div class="star-rating">
+                    <span class="rating-label">Rating:</span>
+                    <i class="bx bx-star" data-value="1"></i>
+                    <i class="bx bx-star" data-value="2"></i>
+                    <i class="bx bx-star" data-value="3"></i>
+                    <i class="bx bx-star" data-value="4"></i>
+                    <i class="bx bx-star" data-value="5"></i>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="submitted-reviews">
+                <h4>Recent Reviews:</h4>
+                <ul id="review-list">
+                    <!-- User reviews will appear here -->
+                </ul>
+            </div>
+        </div>
+   
+    </div>
+ 
+    
+    
+<script src="../FrontEnd/gameinfo.js"></script>
+</body>
+
+
+</html>

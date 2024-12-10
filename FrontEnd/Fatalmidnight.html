@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/stylegameinfo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Fatal Midnight</title>
+</head>
+
+<body>
+    <div class="gameinfo">
+        <div class="logoname">
+            <img src="src/img/logoName.png" alt=""> 
+        </div>
+        <div class="game-image-container">
+             <img src="/frontend/src/img/fatalmidnightbg.jpg" alt="game image"><!--GAME IMAGE-->    
+            <div class="game-title">
+                <h1>Fatal Midnight</h1>            <!--game title-->
+                <h3>SWEATYHAND</h3>
+                <div class="game-icon">
+                    <img src="/frontend/src/img/fatalmidnight.jpg" alt="ICON"> <!--game icon-->
+                    <div class="game-rating">
+                        <h4>4/5</h4>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class="download-button-conntainer">
+                        <a href="https://store.steampowered.com/app/3177120/Fatal_Midnight/" class="download-button-link">
+                            <span>Download now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="terms">
+            <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <h3>About This Game</h3>
+        <p class="genre-section">Genre: Horror Game</p>
+        <p>
+            In <em>Fatal Midnight</em>, At night, when the earth was already plunged into darkness,
+             Dan woke up from unusual sounds coming from the depths of the house. Worried about the condition of his sister, 
+             he decides to check on her. 
+            Entering her room, he discovers that she has disappeared.
+        </p>
+    </div>
+    
+    
+
+
+    <div class="content-container">
+        
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/fatal1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/fatal2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/fatal3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/fatal4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/fatal5.jpg">
+                </div>
+            </div>
+        </div>
+    
+        <div class="comment-section">
+            <h3>Leave a Review</h3>
+            <form class="review-form">
+                <textarea placeholder="Write your comment here..." rows="5" required></textarea>
+                <div class="star-rating">
+                    <span class="rating-label">Rating:</span>
+                    <i class="bx bx-star" data-value="1"></i>
+                    <i class="bx bx-star" data-value="2"></i>
+                    <i class="bx bx-star" data-value="3"></i>
+                    <i class="bx bx-star" data-value="4"></i>
+                    <i class="bx bx-star" data-value="5"></i>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="submitted-reviews">
+                <h4>Recent Reviews:</h4>
+                <ul id="review-list">
+                    <!-- User reviews will appear here -->
+                </ul>
+            </div>
+        </div>
+   
+    </div>
+ 
+    
+    
+<script src="../FrontEnd/gameinfo.js"></script>
+</body>
+
+
+</html>

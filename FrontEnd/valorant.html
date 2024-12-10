@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/stylegameinfo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Valorant</title>
+</head>
+
+<body>
+    <div class="gameinfo">
+        <div class="logoname">
+            <img src="src/img/logoName.png" alt=""> 
+        </div>
+        <div class="game-image-container">
+             <img src="/frontend/src/img/valbg.jpg" alt="game image"><!--GAME IMAGE-->
+            <div class="game-title">
+                <h1>Valorant</h1>            <!--game title-->
+                <h3>RIOT GAMES</h3>
+                <div class="game-icon">
+                    <img src="/frontend/src/img/valorant-icon.jpg" alt="ICON"> <!--game icon-->
+                    <div class="game-rating">
+                        <h4>4/5</h4>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class="download-button-conntainer">
+                        <a href="https://playvalorant.com/en-gb/download/" class="download-button-link">
+                            <span>Download now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="terms">
+            <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <h3>About This Game</h3>
+        <p class="genre-section">Genre: Shooting, Tactical Shooter, Hero Shooter</p>
+        <p>
+            <em>Valorant</em>,  is a free-to-play first-person tactical hero shooter developed and published by Riot Games. 
+            Released in 2020, it blends precise gunplay with unique character abilities, creating a competitive and strategic experience. 
+            The game features two teams of five players, each taking turns as attackers and defenders, with the objective to plant or defuse 
+            a spike (bomb) or eliminate the opposing team.
+
+            Each agent in the game has a specific set of abilities, including utilities like smoke grenades, flashes, or healing powers,
+            encouraging players to strategize and play to their strengths. Valorant emphasizes teamwork, coordination, and mechanical skill, 
+            making it a favorite in the esports and competitive gaming communities.
+        </p>
+    </div>
+    
+    
+
+
+    <div class="content-container">
+        
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/val7.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/val2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/val3.webp">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/val4.webp">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/val5.jpg">
+                </div>
+            </div>
+        </div>
+    
+        <div class="comment-section">
+            <h3>Leave a Review</h3>
+            <form class="review-form">
+                <textarea placeholder="Write your comment here..." rows="5" required></textarea>
+                <div class="star-rating">
+                    <span class="rating-label">Rating:</span>
+                    <i class="bx bx-star" data-value="1"></i>
+                    <i class="bx bx-star" data-value="2"></i>
+                    <i class="bx bx-star" data-value="3"></i>
+                    <i class="bx bx-star" data-value="4"></i>
+                    <i class="bx bx-star" data-value="5"></i>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="submitted-reviews">
+                <h4>Recent Reviews:</h4>
+                <ul id="review-list">
+                    <!-- User reviews will appear here -->
+                </ul>
+            </div>
+        </div>
+   
+    </div>
+ 
+    
+    
+<script src="../FrontEnd/gameinfo.js"></script>
+</body>
+
+
+</html>

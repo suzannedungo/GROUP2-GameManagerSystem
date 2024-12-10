@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/stylegameinfo.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>F1 24</title>
+</head>
+
+<body>
+    <div class="gameinfo">
+        <div class="logoname">
+            <img src="src/img/logoName.png" alt=""> 
+        </div>
+        <div class="game-image-container">
+             <img src="/frontend/src/img/f1s1.jpg" alt="game image"><!--GAME IMAGE-->
+            <div class="game-title">
+                <h1>F1 24</h1>            <!--game title-->
+                <h3>CODEMASTERS</h3>
+                <div class="game-icon">
+                    <img src="/frontend/src/img/f1sicon.jpg" alt="ICON"> <!--game icon-->
+                    <div class="game-rating">
+                        <h4>4/5</h4>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class="download-button-conntainer">
+                        <a href="https://store.steampowered.com/app/2488620/F1_24/" class="download-button-link">
+                            <span>Download now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="terms">
+            <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <h3>About This Game</h3>
+        <p class="genre-section">Genre: RACING GAME</p>
+        <p>
+        <em>F1 24</em> , is a racing video game developed by Codemasters and published by EA Sports. 
+        It is the seventeenth entry in the F1 series and holds the license for the 2024 Formula One and Formula 2 championships. 
+        The game was released on 31 May,
+         or three days earlier for users who pre-ordered the Champions' Edition.
+        </p>
+    </div>
+    
+    
+
+
+    <div class="content-container">
+        
+        <div class="slider">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/f1s1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/f1s2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/f1s3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/f1s4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/FrontEnd/src/img/f1s5.jpg">
+                </div>
+            </div>
+        </div>
+    
+        <div class="comment-section">
+            <h3>Leave a Review</h3>
+            <form class="review-form">
+                <textarea placeholder="Write your comment here..." rows="5" required></textarea>
+                <div class="star-rating">
+                    <span class="rating-label">Rating:</span>
+                    <i class="bx bx-star" data-value="1"></i>
+                    <i class="bx bx-star" data-value="2"></i>
+                    <i class="bx bx-star" data-value="3"></i>
+                    <i class="bx bx-star" data-value="4"></i>
+                    <i class="bx bx-star" data-value="5"></i>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="submitted-reviews">
+                <h4>Recent Reviews:</h4>
+                <ul id="review-list">
+                    <!-- User reviews will appear here -->
+                </ul>
+            </div>
+        </div>
+   
+    </div>
+ 
+    
+    
+<script src="../FrontEnd/gameinfo.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+}
+
+:root {
+    --main-text-color: white;
+    --sectect-color: black;
+    --main-color: #8455c4;
+    --sec-color: #b48cfc;
+    --btn-hover-color: #6f559d;
+}
+
+body {
+    background-color: #151515;
+}
+
+.container-body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.slider {
+    height: 250px;
+    position: relative;
+    width: 80%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    margin-top: 50px;
+    right: 20px;
+    border-radius: 5px;
+}
+.slider-track {
+    display: flex;
+    width: calc(250px * 5); /* Ensure enough space for all slides */
+    animation: scroll 30s linear infinite;
+}
+
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 4.7));
+    }
+}
+
+.slide {
+    height: 10px;
+    width: 225px;
+    display: flex;
+    align-items: center;
+    padding: 105px;
+    perspective: 100px;
+}
+
+img {
+    width:400px;
+    height: 300px;
+    position: relative;
+}
+
+.slider::before,
+.slider::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+
+/* -----------------------------*/
+.game-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Ensures any cropped part is hidden */
+}
+
+.game-image-container img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover; /* Ensures the image covers the container and crops the bottom */
+    object-position: center center; /* Centers the image */
+}
+
+/* Pseudo-element for gradient overlay */
+.game-image-container::before {
+   content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Places the gradient above the image */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), #151515), /* Gradient overlay */
+                linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 40%); /* Shadow from left to right */
+    pointer-events: none;
+}
+
+.logoname {
+    position: absolute;
+    top: 20px;  
+    left: 30px;
+    z-index: 10;
+    width: 130px;
+    height: auto;
+}
+
+.logoname img {
+    width: 100%;
+    height: auto;
+}
+
+.game-title {
+    position: absolute;
+    top: 75px; /*adjust how far form left is the title*/
+    left: 20%; /*adjust how far form left is the title*/
+    transform: translateX(-50%); /* Center it horizontally */
+    text-align: center;
+    color: var(--main-text-color);
+    z-index: 1;
+    width: 100%;
+}
+
+.game-title h1 {
+    font-size: 40px;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-title h3 {
+    padding-top: 10px;
+    color: var(--main-color);
+}
+
+.game-title h4 {
+    position: relative; /* Relative positioning to adjust within its parent */
+    top: -20px; /* Move it upwards by reducing this value */
+    left: 50%;
+    padding-top: 0; /* Remove extra padding if any */
+    color: var(--main-color);
+    font-size: 18px; /* Keep a consistent size */
+    text-align: center; /* Center-align if needed */
+}
+
+.game-icon img {
+    position: absolute; 
+    top: 110px;
+    left: 37%; 
+    transform: translateX(-50%); 
+    height: 70px;
+    width: 70px;
+    z-index: 2; 
+}
+
+.game-rating {
+    position: absolute;
+    top: 95px; 
+    left: 43%; 
+    transform: translateX(-50%); 
+    font-size: 20px;
+    color: orange;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    z-index: 2; 
+    font-size: 20px;
+    padding-top: 4%;
+    color: orange;
+}
+
+.download-button-conntainer {
+    position: absolute; 
+    top: 180px; 
+    left: 41%; 
+    transform: translateX(-50%); 
+    justify-content: center;
+    align-items: center;
+    z-index: 2; 
+    padding-top: 20px; 
+}
+
+.download-button-conntainer a {
+    background-color: var(--sec-color);
+    font-size: small;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 50px; /* Padding for button size */
+    transition: background-color 0.3s ease;
+}
+
+.download-button-conntainer span,a {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--main-text-color);
+}
+
+.download-button-conntainer a:hover{
+    background-color: var(--main-color);
+}
+
+.terms {
+    position: absolute;
+    top: 250 px;
+    left: 48px;
+    color: var(--main-text-color);
+    z-index: 20; /* Ensure it stays above other elements if needed */
+}
+
+
+
+/*********** ABOUT THIS GAME *************/
+.about-container {
+    background-color: #202020; 
+    color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin: 30px auto;
+    width: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial', sans-serif;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about-container h3 {
+    font-size: 24px;
+    color: var(--sec-color);
+    margin-bottom: 15px;
+    text-align: left;
+    border-bottom: 3px solid var(--sec-color);
+    padding-bottom: 5px;
+}
+
+.about-container p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.about-container .genre-section {
+    font-size: 16px;
+    color: var(--sec-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.about-container .game-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        width: 90%;
+    }
+
+    .about-container h3 {
+        font-size: 20px;
+    }
+
+    .about-container p {
+        font-size: 14px;
+    }
+}
+
+
+/*********** CONTAINER OF SLIDER AND COMMENT/REVIEW SECTION*************/
+.content-container {
+    display: flex; 
+    gap: 5px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 90%;
+}
+
+/*********** COMMENT AND REVIEW SECTION *************/
+.comment-section {
+    margin-top: 50px;
+    margin-left: 60px;
+    width: 30%;
+    background-color: #202020;
+    padding: 50px;
+    border-radius: 10px;
+    color: var(--main-text-color);
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.comment-section h3 {
+    margin-bottom: 15px;
+    color: var(--sec-color);
+    text-align: center;
+}
+
+.review-form textarea {
+    width: 100%;
+    height: 100px; 
+    border: 2px solid var(--sec-color); 
+    border-radius: 10px; 
+    padding: 10px;
+    background-color: #1e1e1e; 
+    color: var(--main-text-color);
+    font-size: 16px; 
+    font-family: Arial, sans-serif; 
+    resize: none; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.review-form textarea:focus {
+    border-color: var(--main-color); 
+    box-shadow: 0 0 8px var(--main-color); 
+    outline: none; 
+}
+
+.review-form button {
+    margin-top: 15px; 
+}
+
+
+.review-form .star-rating {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-form .star-rating .rating-label {
+    color: var(--main-text-color);
+    font-size: 16px;
+}
+
+.review-form .star-rating i {
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.review-form .star-rating i:hover,
+.review-form .star-rating i.active {
+    color: orange;
+}
+
+.review-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: var(--sec-color);
+    color: var(--main-text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button:hover {
+    background-color: var(--main-color);
+}
+
+
+/* Submitted reviews styling */
+.submitted-reviews ul li {
+    background: #151515;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: 14px;
+}
+
+.submitted-reviews ul li .profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitted-reviews ul li .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.submitted-reviews ul li .review-content {
+    flex-grow: 1;
+}
+
+.submitted-reviews ul li .review-content .username {
+    font-weight: bold;
+    color: var(--sec-color);
+    margin-bottom: 5px;
+}
+
+.submitted-reviews ul li .review-content .stars {
+    color: orange;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
