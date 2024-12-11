@@ -258,7 +258,7 @@ text-decoration: none;
         background: rgba(255, 255, 255, 0.15);
     }
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 425px) {
     .wrapper{
         min-height: 100vh;
     }
@@ -273,6 +273,24 @@ text-decoration: none;
     .register-container .two-forms{
         flex-direction: column;
         gap: 0;
+    }
+}
+
+@media only screen and (max-width:425px){
+
+    .wrapper{
+        height: auto;
+        width: auto;
+    }
+    .nav-logo img{
+        height: 3rem;
+        width: auto;
+    }
+
+    .form-box{
+        width: 412px;
+        height: 420px;
+        animation: fadeIn 0.5s ease-in-out; /* Apply fade-in effect */
     }
 }
 
