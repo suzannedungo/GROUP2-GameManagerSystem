@@ -8,9 +8,9 @@ Authentication::redirectAdminPage();
 require_once __DIR__ . "/../../config/Database.php";
 $db = Database::connect();
 
-$account = $_SESSION["signed_in_acc"];
+$account = $_SESSION["signed_in_user"];
 
-$dp_path = "../../src/uploads/users_images/{$account['profile_image']}";
+$dp_path = "../../{$account['profile_image']}";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,11 +79,13 @@ $dp_path = "../../src/uploads/users_images/{$account['profile_image']}";
                         <div class="game-list">
                           <?php
                             $stmt = $db->prepare(
-                              "SELECT `game`.`id`, `game`.`name`, `game`.`info`, `game`.`game_image` AS 'image' FROM `game`
-                              INNER JOIN `game_genre` ON `game`.`id` = `game_genre`.`game_id`
-                              INNER JOIN `genre` ON `game_genre`.`genre_id` = `genre`.`id`
-                              WHERE `genre`.`name` = 'role play';"
+                              "SELECT `game`.`id`, `game`.`name`, `game`.`info`
+                               FROM `game`
+                               JOIN `game_genre` ON `game`.`id` = `game_genre`.`game_id`
+                               JOIN `genre` ON `game_genre`.`genre_id` = `genre`.`id`
+                               WHERE `genre`.`name` = 'role play'"
                             );
+
                             if(!($stmt->execute())) {
                               http_response_code(500);
                               echo

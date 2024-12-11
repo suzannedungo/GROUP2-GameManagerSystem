@@ -20,9 +20,20 @@ class Authentication {
     self::checkInputEmpty($password, "password", "../page/index.php");
 
     $this->checkPwdLen($password);
+
+    $smtp_user = new SMTPConfig();
+    if($email === $smtp_user->getEmail()) {
+      echo
+      "<script>
+        alert(\"User is already in our records.\");
+        window.location.href = \"../page/index.php\";
+      </script>";
+      exit();
+    }
+
     $username = strtolower($username);
 
-    $stmt = $this->database->prepare("SELECT email FROM account WHERE email = :email");
+    $stmt = $this->database->prepare("SELECT email FROM user WHERE email = :email");
     $stmt->execute([
       ":email" => $email
     ]);
@@ -31,13 +42,13 @@ class Authentication {
     if($stmt->rowCount() > 0) {
       echo
       "<script>
-        alert(\"Account is already in our records.\");
+        alert(\"User is already in our records.\");
         window.location.href = \"../page/index.php\";
       </script>";
       exit();
     }
 
-    $stmt = $this->database->prepare("SELECT username FROM account WHERE username = :username");
+    $stmt = $this->database->prepare("SELECT username FROM user WHERE username = :username");
     $stmt->execute([
       ":username" => $username
     ]);
@@ -52,7 +63,7 @@ class Authentication {
       exit();
     }
 
-    $stmt = $this->database->prepare("INSERT INTO account(name, username, email, password, tokencode) VALUES(:name, :username, :email, :password, :tokencode)");
+    $stmt = $this->database->prepare("INSERT INTO user(name, username, email, password, tokencode) VALUES(:name, :username, :email, :password, :tokencode)");
     $stmt->execute([
       ":name" => $name,
       ":username" => $username,
@@ -64,11 +75,11 @@ class Authentication {
     // Update this with pop up window instead of alert.
     echo
     "<script>
-      alert(\"Account Added Successfully!\");
+      alert(\"User Added Successfully!\");
     </script>";
 
-    $_SESSION['verifying_acc']['email'] = $email;
-    $_SESSION['verifying_acc']['username'] = $username;
+    $_SESSION['verifying_user']['email'] = $email;
+    $_SESSION['verifying_user']['username'] = $username;
     $_SESSION['otp'] = rand(100000, 999999);
     
     // Sending OTP.
@@ -77,7 +88,7 @@ class Authentication {
     // Update this with pop up window instead of alert.
     echo "
       <script>
-        alert(\"We have sent you an OTP to {$_SESSION['verifying_acc']['email']}.\"); 
+        alert(\"We have sent you an OTP to {$_SESSION['verifying_user']['email']}.\"); 
         window.location.href = \"../page/otpverification.php\";
       </script>
     ";
@@ -89,7 +100,18 @@ class Authentication {
 
     $this->checkPwdLen($password);
 
-    $stmt = $this->database->prepare("SELECT * FROM account WHERE email = :email");
+    $smtp_user = new SMTPConfig();
+    if($email === $smtp_user->getEmail() && $password === $smtp_user->getPassword()) {
+      $admin["email"] = $smtp_user->getEmail();
+      $admin["name"] = $smtp_user->getName();
+
+      $_SESSION["signed_in_user"] = $admin;
+
+      header("Location: ./admin/dashboard.php");
+      exit();
+    }
+
+    $stmt = $this->database->prepare("SELECT * FROM user WHERE email = :email");
     $stmt->execute([
       ":email" => $email
     ]);
@@ -98,17 +120,17 @@ class Authentication {
     if($stmt->rowCount() <= 0) {
       echo
       "<script>
-        alert(\"Account is not in our records.\");
+        alert(\"User is not in our records.\");
         window.location.href = \"../page/index.php\";
       </script>";
       exit();
     }
 
-    $account_info = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Update this with pop up window instead of alert.
     $password = $this->hashPwd($password);
-    if($password !== $account_info["password"]) {
+    if($password !== $user_info["password"]) {
       echo
       "<script>
         alert(\"Password Incorrect.\");
@@ -118,21 +140,21 @@ class Authentication {
     }
 
     // Update this with pop up window instead of alert.
-    if($account_info["status"] === "not_verified") {
+    if($user_info["status"] === "not_verified") {
       echo "
         <script>
-          alert(\"Account Is Not Yet Verified.\"); 
+          alert(\"User Is Not Yet Verified.\"); 
         </script>
       ";
 
-      $_SESSION['verifying_acc']['email'] = $email;
-      $_SESSION['verifying_acc']['username'] = $account_info["username"];
+      $_SESSION['verifying_user']['email'] = $email;
+      $_SESSION['verifying_user']['username'] = $user_info["username"];
       $_SESSION['otp'] = rand(100000, 999999);
       $this->sendOTP();
 
       echo "
         <script>
-          alert(\"We have sent you an OTP to {$account_info['email']}.\"); 
+          alert(\"We have sent you an OTP to {$user_info['email']}.\"); 
           window.location.href = \"../page/otpverification.php\";
         </script>
       ";
@@ -140,20 +162,20 @@ class Authentication {
       exit();
     }
 
-    $_SESSION["signed_in_acc"] = $account_info;
-    switch($_SESSION["signed_in_acc"]["type"]) {
-      case 'user':
-        header("Location: ./user/dashboard.php");
-        break;
-      
-      case 'admin':
-        header("Location: ./admin/dashboard.php");
-        break;
+    $_SESSION["signed_in_user"] = $user_info;
+
+    $_SESSION["signed_in_user"]["profile_image"] = "src/uploads/users_images/default_dp.jpg";
+    if($user_info["default_image"]) {
+      $img_path = "uploads/users_images/{$user_info['username']}/dp.jpg";
+      if(!is_file($img_path)) 
+        $img_path = "uploads/users_images/{$user_info['username']}/dp.png";
     }
+
+    header("Location: ./user/dashboard.php");
   }
 
   public function signout() {
-    if(!isset($_SESSION["signed_in_acc"])) exit();
+    if(!isset($_SESSION["signed_in_user"])) exit();
 
     session_unset();
     session_destroy();
@@ -162,8 +184,8 @@ class Authentication {
   }
 
   public function sendOTP() {
-    $receiver_email = $_SESSION['verifying_acc']['email'];
-    $receiver_name = $_SESSION['verifying_acc']['username'];
+    $receiver_email = $_SESSION['verifying_user']['email'];
+    $receiver_name = $_SESSION['verifying_user']['username'];
 
     $subject = "OTP VERIFICATION";
 
@@ -174,7 +196,7 @@ class Authentication {
     $this->smtp->sendEmail($receiver_email, $receiver_name, $subject, $message);
   }
 
-  public function verifyAccount($otp) {
+  public function verifyUser($otp) {
     if($_SESSION['otp'] != $otp) {
       echo "
         <script>
@@ -185,10 +207,10 @@ class Authentication {
       exit();
     }
 
-    $receiver_email = $_SESSION['verifying_acc']['email'];
-    $receiver_name = $_SESSION['verifying_acc']['username'];
+    $receiver_email = $_SESSION['verifying_user']['email'];
+    $receiver_name = $_SESSION['verifying_user']['username'];
 
-    $stmt = $this->database->prepare("UPDATE account SET status = :status, tokencode = :tokencode WHERE email = :email");
+    $stmt = $this->database->prepare("UPDATE user SET status = :status, tokencode = :tokencode WHERE email = :email");
     $stmt->execute([
       ":status" => "verified",
       ":tokencode" => $this->generateTC(),
@@ -212,14 +234,14 @@ class Authentication {
     
     echo "
       <script>
-        alert(\"Account {$receiver_email} Verified Successfully.\");
+        alert(\"User {$receiver_email} Verified Successfully.\");
         window.location.href = \"../page/index.php\";
       </script>
     ";
   }
 
   public function sendRPLink($email) {
-    $stmt = $this->database->prepare("SELECT * FROM account WHERE email = :email");
+    $stmt = $this->database->prepare("SELECT * FROM user WHERE email = :email");
     $stmt->execute([
       ":email" => $email
     ]);
@@ -234,15 +256,15 @@ class Authentication {
       exit();
     }
 
-    $account_info = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $subject = "RESET PASSWORD";
 
-    $link = "http://localhost/projects/ITELEC2/GROUP2-GameManagerSystem/page/resetpassword.php?id={$account_info['id']}&tokencode={$account_info['tokencode']}";
+    $link = "http://localhost/projects/ITELEC2/GROUP2-GameManagerSystem/page/resetpassword.php?id={$user_info['id']}&tokencode={$user_info['tokencode']}";
     $message = file_get_contents("../email/rp-email.html");
     $message = str_replace("{link}", $link, $message);
 
-    $this->smtp->sendEmail($account_info['email'], $account_info['username'], $subject, $message);
+    $this->smtp->sendEmail($user_info['email'], $user_info['username'], $subject, $message);
     echo "
       <script>
         alert('We Have Sent You A Reset Password.');
@@ -262,7 +284,7 @@ class Authentication {
       exit();
     }
 
-    $stmt = $this->database->prepare("UPDATE account SET password = :password, tokencode = :tokencode WHERE id = :id");
+    $stmt = $this->database->prepare("UPDATE user SET password = :password, tokencode = :tokencode WHERE id = :id");
     $stmt->execute([
       ":password" => $this->hashPwd($new_pass),
       ":tokencode" => $this->generateTC(),
@@ -278,21 +300,21 @@ class Authentication {
   }
 
   public static function checkAccLoggedIn() {
-    if(isset($_SESSION["signed_in_acc"])) {
+    if(isset($_SESSION["signed_in_user"])) {
       echo 
       "<script>
-        alert(\"Account is signed in yet.\");
-        window.location.href = \"../dashboard/{$_SESSION['signed_in_acc']['type']}/dashboard.php\";
+        alert(\"User is signed in yet.\");
+        window.location.href = \"../dashboard/{$_SESSION['signed_in_user']['type']}/dashboard.php\";
       </script>";
       exit();
     }
   }
 
   public static function checkAccNotLoggedIn($redirect) {
-    if(!isset($_SESSION["signed_in_acc"])) {
+    if(!isset($_SESSION["signed_in_user"])) {
       echo 
       "<script>
-        alert(\"No account is signed in.\");
+        alert(\"No user is signed in.\");
         window.location.href = \"{$redirect}\";
       </script>";
       exit();
@@ -300,14 +322,14 @@ class Authentication {
   }
 
   public static function checkOTPVerifyOnGoing() {
-    if(isset($_SESSION['otp']) && isset($_SESSION['verifying_acc'])) {
+    if(isset($_SESSION['otp']) && isset($_SESSION['verifying_user'])) {
       unset($_SESSION['otp']);
-      unset($_SESSION['verifying_acc']);
+      unset($_SESSION['verifying_user']);
     }
   }
 
   public static function checkOTPVerifyNotOnGoing() {
-    if(!isset($_SESSION['otp']) && !isset($_SESSION['verifying_acc'])) {
+    if(!isset($_SESSION['otp']) && !isset($_SESSION['verifying_user'])) {
       echo 
       "<script>
         alert(\"No OTP Set.\");
@@ -318,14 +340,16 @@ class Authentication {
   }
 
   public static function redirectAdminPage() {
-    if($_SESSION["signed_in_acc"]["type"] === "admin") {
+    $smtp_user = new SMTPConfig();
+    if($_SESSION["signed_in_user"]["email"] === $smtp_user->getEmail()) {
       header("Location: ../admin/dashboard.php");
       exit();
     }
   }
 
   public static function redirectUserPage() {
-    if($_SESSION["signed_in_acc"]["type"] === "user") {
+    $smtp_user = new SMTPConfig();
+    if($_SESSION["signed_in_user"]["email"] !== $smtp_user->getEmail()) {
       header("Location: ../user/dashboard.php");
       exit();
     }
@@ -385,7 +409,7 @@ if(isset($_GET["logout"])) {
 }
 
 if(isset($_POST['otp_sent'])) {
-  (new Authentication())->verifyAccount($_POST['otp']);
+  (new Authentication())->verifyUser($_POST['otp']);
 }
 
 if(isset($_POST['find_email'])) {
