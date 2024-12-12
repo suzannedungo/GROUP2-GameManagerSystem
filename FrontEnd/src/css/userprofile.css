@@ -368,6 +368,8 @@ body{
 .Email a{
     text-decoration: none;
 }
+
+
 /******************************************************Laptop small******************************************************/
 @media only screen and (max-width: 1024px) {
 
@@ -414,8 +416,13 @@ body{
         font-size: 15px;
     }
 }
+
 /******************************************************TABLET******************************************************/
 @media only screen and (max-width: 768px) {
+
+    .navigations-container {
+        width: 100%;
+    }
 
     .profile-container {
         width: 600px;
@@ -464,6 +471,17 @@ body{
 
 /******************************************************MOBILE L******************************************************/
 @media only screen and (max-width: 425px) {
+
+    .navigations-container img{
+        height: auto;
+        width: 4rem;
+    }
+
+    .navigations-container {
+        height: 50px;
+        width: 100%;
+    }
+
     
     .profile-container {
         width: 300px;
@@ -516,23 +534,23 @@ body{
         color: var(--main-text-color);
     }
 
-
+    /*personal information */
     .personal-info-container {
     width: 100%;
-    margin-left: 0; /* Adjust margin */
+    margin-left: 0; 
     }
 
     .personal-info-container div {
-    margin-bottom: 20px; /* Reduced margin */
+    margin-bottom: 20px;
     }
 
     .personal-info-container h3 {
-        font-size: 25px; /* Smaller heading size */
+        font-size: 25px; 
         margin-left: 8px;
     }
 
     .personal-info-container h1 {
-    font-size: 22px; /* Smaller heading size */
+    font-size: 22px; 
     margin-left: 10px;
     }
 
@@ -558,11 +576,19 @@ body{
         align-items: center;
     }
 
-    .game-favorites-container {
+    .game-card{
         width: 250px;
     }
 
-    /*recently viewed*/
+    .game-favorites-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 285px;
+        margin-right: 40px;
+    }
+
     /*recently viewed*/
     .recently-viewed-container {
         width: 85%; 
