@@ -31,60 +31,64 @@
     <div class="addgame-text">Add game</div>
     <div class="container">
         <div class="form-section">
-            <form>
-                <div class="form-group">
-                    <label for="game-name">Game Name:</label>
-                    <input type="text" id="game-name" name="game-name" placeholder="Enter game name" required>
+            <div class="input-container">
+                <form>
+                    <div class="form-group">
+                        <label for="game-name">Game Name:</label>
+                        <input type="text" id="game-name" name="game-name" placeholder="Enter game name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="developer">Developer:</label>
+                        <input type="text" id="developer" name="developer" placeholder="Enter developer name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="info">Info:</label>
+                        <input type="text" id="info" name="info" placeholder="Enter game info" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="download-link">Download Link:</label>
+                        <input type="url" id="download-link" name="download-link" placeholder="Enter download link"
+                            required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="checkbox-section">
+                <h3>Pick A Genre</h3>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="genre" value="rpg"> RPG</label>
+                    <label><input type="checkbox" name="genre" value="horror"> Horror</label>
+                    <label><input type="checkbox" name="genre" value="racing"> Racing</label>
+                    <label><input type="checkbox" name="genre" value="royal"> Shooting</label>
                 </div>
-                <div class="form-group">
-                    <label for="developer">Developer:</label>
-                    <input type="text" id="developer" name="developer" placeholder="Enter developer name" required>
-                </div>
-                <div class="form-group">
-                    <label for="info">Info:</label>
-                    <input type="text" id="info" name="info" placeholder="Enter game info" required>
-                </div>
-                <div class="form-group">
-                    <label for="download-link">Download Link:</label>
-                    <input type="url" id="download-link" name="download-link" placeholder="Enter download link" required>
-                </div>
-            </form>
-        </div>
-    
-        <div class="checkbox-section">
-            <h3>Pick A Genre</h3>
-            <div class="checkbox-grid">
-                <label><input type="checkbox" name="genre" value="rpg"> RPG</label>
-                <label><input type="checkbox" name="genre" value="horror"> Horror</label>
-                <label><input type="checkbox" name="genre" value="racing"> Racing</label>
-                <label><input type="checkbox" name="genre" value="royal"> Shooting</label>
             </div>
         </div>
-        <div class="icon-container">
-            <div class="icon-item">
-                <a href="#">
-                    <i class="bx bx-add-to-queue"></i>
-                </a>
+
+        <div class="edit-container">
+            <div class="icon-container">
+                <div class="icon-item">
+                    <a href="#">
+                        <i class="bx bx-add-to-queue"></i>
+                    </a>
                     <span>Choose icon</span>
-            </div>
-            <div class="icon-item">
-                <a href="#">
-                    <i class="bx bx-add-to-queue"></i>
-                </a>
+                </div>
+                <div class="icon-item">
+                    <a href="#">
+                        <i class="bx bx-add-to-queue"></i>
+                    </a>
                     <span>Choose Background</span>
-            </div>
-            <div class="icon-item">
-                <a href="#">
-                    <i class="bx bx-add-to-queue" style="color: #b48cfc;"></i>
-                </a>
+                </div>
+                <div class="icon-item">
+                    <a href="#">
+                        <i class="bx bx-add-to-queue" style="color: #b48cfc;"></i>
+                    </a>
                     <span>Choose 5 game samples</span>
+                </div>
+                <div>
+                    <label for="file-upload" class="upload-button">Upload</label>
+                    <input type="file" id="file-upload" style="display: none;" />
+                </div>
             </div>
-        </div>
-        <div>
-            <label for="file-upload" class="upload-button">
-                Upload
-            </label>
-            <input type="file" id="file-upload" style="display: none;" />
         </div>
     </div>
 </body>
