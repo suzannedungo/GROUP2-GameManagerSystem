@@ -1,0 +1,173 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-text-color: white;
+    --main-color: #8455c4;
+    --sec-color: #b48cfc;
+    --navbar-bg: #000000;
+    --btn-hover-color: #6f559d;
+}
+
+body {
+    background-color: #151515;
+    font-family: Arial, sans-serif;
+    color: var(--main-text-color);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.home-button {
+    color: var(--main-text-color);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Main Content */
+.container-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px 20px 20px; /* Spacing for fixed navbar */
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Profile Section */
+.profile-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--sec-color);
+}
+
+.user-info p {
+    margin: 5px 0;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.change-password-btn {
+    background-color: var(--sec-color);
+    color: var(--main-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover,
+.change-password-btn:hover {
+    background-color: var(--btn-hover-color);
+}
+
+/* Favorited Games Section */
+.profile-right {
+    flex: 2;
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-right h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--sec-color);
+}
+
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.game {
+    background-color: var(--main-color);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    color: var(--main-text-color);
+}
+
+.game-logo {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px; /* Square logos with slightly rounded corners */
+    margin-bottom: 10px;
+}
+
+.game-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--main-text-color);
+}
+
+.game-genre {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--sec-color);
+}
+
+.game-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 14px;
+}
+
+.game-rating .star {
+    font-size: 16px;
+    color: orange;
+    cursor: default;
+}

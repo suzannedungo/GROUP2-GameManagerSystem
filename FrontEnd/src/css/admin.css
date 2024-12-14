@@ -1,0 +1,668 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+:root{
+    --nav-background:rgb(88, 88, 88);
+    --profile-container-background:rgb(88, 88, 88);
+    --main-text-color:white;
+    --sec-text-color:black; 
+    --btn-color:#b48cfc;
+    --hover-color:#b48cfc;
+    --sec-hover-color:#7d56c7;
+}
+
+body{
+    background-color: #151515
+}
+
+.navigations-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color:  var(--nav-background);
+    width: 100%;
+    height: 70px;
+}
+
+.navigations-container img{
+    width: auto;
+    height: 3rem;
+    position: relative;
+    left: 30px;
+
+}
+
+.home-button{
+    position: relative;
+    right: 25px;
+    font-size: 25px;
+}
+
+.home-button :hover{
+    color: var(--hover-color);
+    transition:0.3s ease;
+}
+
+.home-button a{
+    text-decoration: none;
+    color:var(--main-text-color) ;
+}
+
+.profile-container {
+    margin-top: 30px;
+    margin-left: 70px;
+    background-color: #222;
+    width: 850px;
+    height: 480px;
+    border-radius: 20px;
+    position: relative;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-evenly;  
+    align-items: center;
+}
+
+.profile-pic img{
+    height: 280px;
+    width: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 200px; 
+}
+
+.edit-profile-button{
+    position: relative;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color:var(--btn-color) ;
+    width: 190px;
+    text-align: center;
+    padding: 15px;
+    font-size: medium;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover{
+    background-color: var(--sec-hover-color);
+}
+
+.edit-profile-button a{
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+.personal-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 40px;
+
+}
+
+.personal-info-container div {
+    margin-bottom: 50px; /* Seperates Display name UserName and  */
+}
+
+.personal-info-container h3 {
+    margin: 0;
+    font-size: 20px; 
+    color: var(--btn-color);
+}
+
+.personal-info-container h1 {
+    margin-top: 5px; /* Adds space between the label (h3) and the (h1) */
+    font-size: 30px; 
+    font-weight: normal; /* Optional: makes the h1 text lighter */
+    color: var(--main-text-color);
+    padding-bottom: 10px;
+}
+
+.reset-pass{
+    margin-top: 50px;
+    margin-left: 70px;
+    width: 850px;
+    padding-bottom: 50px;
+}
+
+.reset-pass h1{
+    font-size: 50px;
+    color: var(--main-text-color);
+}
+
+.reset-pass-button{
+    position: relative;
+    margin-left: 30px;
+    margin-top: 20px;
+    background-color:var(--btn-color) ;
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+    font-size: medium;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.reset-pass-button:hover{
+    background-color: var(--sec-hover-color);
+}
+
+.reset-pass span{
+    font-size: 25px;
+    color: var(--main-text-color);
+}
+
+.reset-pass a{
+    text-decoration: none;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin: 20px 50px; 
+}
+
+.game-favorites-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #222;
+    width: 450px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.game-favorites-container h1 {
+    font-size: 30px;
+    color: var(--main-text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--btn-color);
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.game-card img {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.game-info h3 {
+    font-size: 22px;
+    color: var(--main-text-color);
+    margin-bottom: 5px;
+}
+
+.game-info h4 {
+    font-size: 18px;
+    color: var(--btn-color);
+    margin-bottom: 10px;
+}
+
+.ratings i {
+    font-size: 20px;
+    color: var(--hover-color);
+}
+
+.game-favorites-container h1 i{
+    font-size: 20px;
+    color: #f4d03f;
+}
+
+.divider {
+    width: 2px; 
+    background-color: var(--btn-color); 
+    margin: 0 20px; 
+    height: auto; 
+    align-self: stretch; 
+}
+
+
+.recently-viewed-container {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 90px;
+    width: 50%; /* Adjust width based on your layout */
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+
+}
+
+
+
+.user-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.user-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.user-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.user-name a{
+    text-decoration: none;
+}
+
+.display-name span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.display-name a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.display-name span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.display-name a{
+    text-decoration: none;
+}
+
+.Email span {
+    position: relative;
+    margin-top: 10px;
+    background-color:var(--btn-color) ;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.Email a :hover{
+    background-color: var(--sec-hover-color);
+}
+
+.Email span{
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.Email a{
+    text-decoration: none;
+}
+
+
+/******************************************************Laptop small******************************************************/
+@media only screen and (max-width: 1024px) {
+
+    .profile-container {
+        width: 600px;
+        height: auto;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;  
+        align-items: center;
+
+    }
+
+    /*content container*/
+    .content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*recently viewed*/
+    .recently-viewed-container {
+        width: 100%; /* Adjust width based on your layout */
+    }
+
+    /*reset pass*/
+    .reset-pass{
+        width: 100%;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction:column;
+    }
+    .reset-pass h1{
+        font-size: 25px;
+        justify-content: center;
+    }
+    .reset-pass-button{
+        width: 200px;
+        padding: 5px;
+        font-size: medium;
+    }
+    .reset-pass span{
+        font-size: 15px;
+    }
+}
+
+/******************************************************TABLET******************************************************/
+@media only screen and (max-width: 768px) {
+
+    .navigations-container {
+        width: 100%;
+    }
+
+    .profile-container {
+        width: 600px;
+        height: auto;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;  
+        align-items: center;
+
+    }
+
+    /*content container*/
+    .content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*recently viewed*/
+    .recently-viewed-container {
+        width: 100%; /* Adjust width based on your layout */
+    }
+
+    /*reset pass*/
+    .reset-pass{
+        width: 100%;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction:column;
+    }
+    .reset-pass h1{
+        font-size: 25px;
+        justify-content: center;
+    }
+    .reset-pass-button{
+        width: 200px;
+        padding: 5px;
+        font-size: medium;
+    }
+    .reset-pass span{
+        font-size: 15px;
+    }
+}
+
+
+/******************************************************MOBILE L******************************************************/
+@media only screen and (max-width: 425px) {
+
+    .navigations-container img{
+        height: auto;
+        width: 4rem;
+    }
+
+    .navigations-container {
+        height: 50px;
+        width: 100%;
+    }
+
+    
+    .profile-container {
+        width: 300px;
+        height: auto;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;  
+        align-items: center;
+    }
+
+    /* Profile Container */
+    .profile-container {
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    }
+    
+    .profile-pic img {
+    height: 100px; /* Smaller profile picture */
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 0;
+    border-radius: 100px;
+    }
+
+    .profile-information{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .edit-profile-button {
+        margin: 20px auto;  /* This centers the button horizontally */
+        width: 190px;
+        padding: 5px;
+        font-size: medium;
+        display: block;  /* Ensure it's a block element so margin auto works */
+    }
+    
+    .edit-profile-button a{
+        font-size: 15px;
+        text-decoration: none;
+        color: var(--main-text-color);
+    }
+
+    /*personal information */
+    .personal-info-container {
+    width: 100%;
+    margin-left: 0; 
+    }
+
+    .personal-info-container div {
+    margin-bottom: 20px;
+    }
+
+    .personal-info-container h3 {
+        font-size: 25px; 
+        margin-left: 8px;
+    }
+
+    .personal-info-container h1 {
+    font-size: 22px; 
+    margin-left: 10px;
+    }
+
+    .user-name span,a{
+        font-size: 13px;
+        padding-left: 10px;
+    }
+    
+    .display-name span,a{
+        font-size: 13px;
+        padding-left: 10px;
+    }
+    
+    .Email span,a{
+        font-size: 13px;
+        padding-left: 10px;
+    }
+
+    /*content container*/
+    .content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-card{
+        width: 250px;
+    }
+
+    .game-add-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 285px;
+        margin-right: 40px;
+    }
+
+    /*recently viewed*/
+    .recently-viewed-container {
+        width: 85%; 
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .recently-viewed-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* Reduced gap between items */
+        justify-content: center;
+        overflow-x: unset;
+    }
+
+    /*reset pass*/
+    .reset-pass{
+        width: 100%;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction:column;
+    }
+    .reset-pass h1{
+        font-size: 25px;
+        justify-content: center;
+    }
+    .reset-pass-button{
+        width: 200px;
+        padding: 5px;
+        font-size: medium;
+    }
+    .reset-pass span{
+        font-size: 15px;
+    }
+    
+}
+
+.admin-label{
+    margin-top: 20px;
+    margin-left: 135px;
+}
+
+.admin-label h2{
+    font-size: 32px;
+    align-items: center;
+    color: var(--main-text-color)
+}
+
+.profile-pic{
+    margin-top: -20px;
+}
+
+.add-game-button {
+    text-align: center;
+    margin-bottom: 20px; /* Space between button and game cards */
+}
+
+.add-game-button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #222;
+    color: var(--main-text-color);
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+}
+
+.add-game-button a i {
+    font-size: 25px;
+    margin-right: 10px;
+    color:var(--btn-color);
+}
+
+.add-game-button a:hover {
+    background-color: var(--sec-hover-color);
+}
+
+.game-actions {
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+}
+
+.game-actions i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.game-actions i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+.game-actions .bx-trash {
+    color: red;
+}
+
+.game-actions .bx-trash:hover {
+    color: darkred; 
+}
+
+
+.game-actions .bx-edit {
+    color: var(--btn-color);
+}
+
+.game-actions .bx-edit:hover {
+    color: darkviolet; 
+}
+
+
