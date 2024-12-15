@@ -28,10 +28,17 @@
     font-size:30px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button a{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .upload-button:hover {
-    background-color: var(--hover-color);
+    background-color: var(--sec-hover-color);
 }
 
 input[type="file"] {
@@ -40,7 +47,7 @@ input[type="file"] {
 
 
 .icon-container {
-    position: absolute;
+/********************************************************************************************************/
     top: 25%; /* Adjust as needed */
     right: 10%; /* Position it to the right */
     display: flex;
@@ -56,7 +63,7 @@ input[type="file"] {
 }
 
 .icon-item i {
-    font-size:60px;
+    font-size:375%;
     margin-right: 10px;
     color: #e24a4a;   
     background-color: var(--profile-container-background);
@@ -70,7 +77,7 @@ input[type="file"] {
 
 
 .icon-item span {
-    font-size: 30px;
+    font-size: 187%;
     color: var(--main-text-color);
 }
 
@@ -79,16 +86,27 @@ input[type="file"] {
     display: inline-block;
     padding: 5px;
     border-radius: 50px;
-    font-size: 30px;
+    font-size: 157%;
+    text-decoration: none;
     position: relative;
+    top: 70px;
+    left: 250px;
+    transition: background-color 0.3s ease;
+}
+
+.addgame-text a{
+    text-decoration: none;
     color: var(--main-text-color);
-    top: 70px; /* Moves 20px down from its normal position */
-    left: 170px; /* Moves 50px to the right from its normal position */
+}
+
+.addgame-text:hover{
+    background-color: var(--sec-hover-color);
 }
 
 body{
     background-color: #151515
 }
+
 .image-container {
     display: flex;
     align-items: center;
@@ -107,9 +125,8 @@ body{
     margin-top: 5%;
     margin-left: 15%;
     display: flex;
-    flex-direction: column; /* Stack vertically */
     gap: 20px;
-    width: 800px; /* Adjust container width */
+    width: 100%; /* Adjust container width */
 }
 
 /* Form Section Styling */
@@ -117,6 +134,7 @@ body{
     background-color: #2e2e2e; /* Slightly lighter background */
     padding: 15px;
     border-radius: 8px;
+    width:40%;
 }
 
 .form-group {
@@ -158,7 +176,7 @@ body{
 
 .checkbox-section h3 {
     margin-bottom: 10px;
-    font-size: 30px;
+    font-size: 150%;
     color: var(--main-text-color);
 }
 
@@ -246,3 +264,90 @@ body{
 
 /******************************************************RESPONSIVE******************************************************/
 
+@media only screen and (max-width: 1425px) {
+    .container{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1425px) {
+
+    .navigations-container a{
+        font-size: 80%;
+    }
+
+    .navigations-container img{
+        width: auto;
+        height: 2rem;
+    }
+
+    .navigations-container span{
+        height: 80%;
+    }
+
+    .addgame-text{
+        top: 10px;
+        left: 100px;
+        font-size: 100%;
+    }
+
+    .icon-item span{
+        font-size: 120%;
+    }
+
+    .icon-item a{
+        font-size: 90%;
+    }
+
+    .upload-button{
+        top: 10px;
+        margin-bottom: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 1425px) {
+
+    .icon-item span{
+        font-size: 120%;
+    }
+
+    .icon-item a{
+        font-size: 50%;
+    }
+
+    .icon-item i {
+        font-size:375%;
+        width: 50px; /* Set a fixed width for the circle */
+        height: 50px; /* Set a fixed height for the circle to match the width */
+    }
+
+    .upload-button{
+        top: 10px;
+        margin-bottom: 100px;
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    .navigations-container a{
+        font-size: 60%;
+    }
+
+    .navigations-container img{
+        width: auto;
+        height: 1rem;
+    }
+
+    .navigations-container span{
+        font-size: 90%;
+    }
+
+    .addgame-text{
+        margin-left: 15%;
+    }
+    .form-section{
+        width: 65%;
+    }
+}
