@@ -1,0 +1,103 @@
+header {
+  padding: 0.5rem;
+  background-color: #000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header > a {
+  display: flex;
+  align-items: center;
+}
+
+header > a > img {
+  width: 80%;
+  min-width: 10rem;
+  max-width: 15rem;
+}
+
+header > nav {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#nav_links {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+}
+
+@media (max-width: 725px) {
+  header > nav {
+    justify-content: flex-end;
+  }
+
+  #nav_links {
+    display: none;
+  }
+}
+
+#nav_links a {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+#nav_links a:hover {
+  text-decoration: underline;
+}
+
+#user_link {
+  display: flex;
+}
+
+#user_link  img {
+  width: 3.5rem;
+  border-radius: 100rem;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  display: none;  /* Hidden by default */
+  position: absolute;
+  top: 100%;  /* Position it below the profile text */
+  right: 0;   /* Align it to the right of the profile picture */
+  background: #21212189;
+  border-radius: 5px;
+  z-index: 1;
+  min-width: 150px;
+}
+
+.dropdown-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--main-text-color);
+  display: block;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  transition: font-size 0.3s ease, border-radius 0.3s ease;
+}
+
+.dropdown-item:hover {
+  color: var(--link-hover);
+  border-radius: 5px;
+} 
+
+.dropdown-container:hover .dropdown-menu {
+  display: block;
+}

@@ -1,0 +1,45 @@
+main {
+  gap: 2rem;
+}
+
+#container {
+  color: var(--main-text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+#container > h1 {
+  font-size: 3rem;
+}
+
+#user_table_container {
+  overflow-x: auto;
+}
+
+#user_table {
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  width: 100%;
+  table-layout: auto;
+  /* table-layout: fixed; */
+}
+
+#user_table, td {
+  padding: auto;
+  border: 1px solid #fff;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+thead {
+  background-color: #222;
+}
+
+input {
+  width: 100%;
+}

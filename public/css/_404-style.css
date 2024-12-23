@@ -1,0 +1,12 @@
+body{
+  background: url("../res/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main a {
+  color: #fff;
+  text-decoration: underline; 
+  font-size: 1.6rem;
+  cursor: pointer;
+}

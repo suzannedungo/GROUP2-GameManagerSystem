@@ -1,0 +1,90 @@
+main {
+  gap: 2rem;
+}
+
+main > h1 {
+  color: var(--main-text-color);
+  font-size: 3rem;
+}
+
+#profile_container {
+  align-self: center;
+
+  width: fit-content;
+  padding: 2rem;
+
+  background-color: #222;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  border-radius: 1rem;
+}
+
+#profile_image_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#profile_image_container > a {
+  padding: 0.5rem 1rem;
+  background-color: var(--btn-color1);
+
+  color: var(--main-text-color);
+  font-size: 1.2rem;
+
+  border: none;
+  border-radius: 1rem;
+
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+
+#profile_image_container > a:hover {
+  background-color: var(--sec-hover-color);
+}
+
+#profile_image {
+  width: 55%;
+  min-width: 13rem;
+  max-width: 25rem;
+  border-radius: 100rem;
+}
+
+#admin_info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--main-text-color);
+}
+
+#admin_info_container h3 {
+  color: var(--btn-color1);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#admin_info_container h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#admin_info_container a, input[type="submit"] {
+  padding: 0.3rem 1rem;
+  color: white;
+  background-color: var(--btn-color1);
+  border: none;
+  border-radius: 1rem;
+}
+
+#admin_info_container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}

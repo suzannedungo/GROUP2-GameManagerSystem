@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../../res/img/icon-page.png" type="image/x-icon" />
+
+  <title>{game_name} | Void</title>
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+	<link rel="stylesheet" href="../../css/general-style.css" />
+	<link rel="stylesheet" href="../../css/user/top-bar-style.css" />
+  <link rel="stylesheet" href="../../css/user/visit-game-style.css" />
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			{top_bar}
+		</header>
+		<main>
+      <div class="gameinfo" style="background-image: 
+    		linear-gradient(rgba(21, 21, 21, 0.3), rgba(21, 21, 21, 1)),
+    		url({game_bg});">
+        <div class="game-image-container">
+          <div class="game-title">
+            <h1>{game_name}</h1>
+            <h3>{game_dev}</h3>
+            <div class="game-icon">
+              <img src="{game_icon}" alt="game icon" />
+              <div class="game-rating">
+                <h4>{rating}</h4>
+                {rating_star}
+              </div>
+            </div>
+            <div class="download-button-conntainer">
+              <a href="{game_dl_link}" class="download-button-link">
+                <span>Download now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="terms">
+          <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+        </div>
+      </div>
+
+      <div class="about-container">
+        <h3>About This Game</h3>
+				<input type="hidden" name="csrf_token" id="csrf_token" value="{csrf_token}" />
+				<input type="hidden" name="game_id" id="game_id" value="{game_id}" />
+				<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+				<label for="favorite">
+					<input type="checkbox" name="favorite" id="favorite" {is_fav} style="display: none;"/>
+					{fav_btn}
+          <!-- /* CONTINUE FAV ICON BUG */ -->
+				</label>
+        <p class="genre-section">{game_genre}</p>
+        <p>{game_info}</p>
+      </div>
+
+      <div class="content-container">
+        <div class="slider">
+          <div class="slider-track">
+            <div class="slide">
+              <img src="{game_sample0}" />
+            </div>
+            <div class="slide">
+              <img src="{game_sample1}" />
+            </div>
+            <div class="slide">
+              <img src="{game_sample2}" />
+            </div>
+            <div class="slide">
+              <img src="{game_sample3}" />
+            </div>
+            <div class="slide">
+              <img src="{game_sample4}" />
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-section">
+          {review_form}
+          <div class="submitted-reviews">
+            <h4>Recent Reviews:</h4>
+            <ul id="review-list">
+              {review}
+            </ul>
+          </div>
+        </div>
+      </div>
+		</main>
+	</div>
+   
+	<script src="../../js/jquery-3.7.1.min.js"></script>
+	<script src="../../js/user/visit-game-data-process.js"></script>
+</body>
+
+
+</html>

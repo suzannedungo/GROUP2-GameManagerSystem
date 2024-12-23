@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../../res/img/icon-page.png" type="image/x-icon" />
+  <title>Reset Password | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../../css/general-style.css">
+  <link rel="stylesheet" href="../../css/auth/auth-box-container-style.css">
+  <link rel="stylesheet" href="../../css/auth/resetpass-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <main>
+      <img src="../../res/img/logo-white.png" alt="logo name" />
+      <h2>Change Password</h2>
+      <p>Enter your new password</p>
+      <form action="/admin/change_pass" method="POST">
+        <input type="hidden" name="csrf_token" value="{csrf_token}" />
+        <div class="input-box">
+          <input type="password" class="input-field" name="password" placeholder="Password" required />
+      		<i id="show_pass" class="bx bx-low-vision"></i>
+        </div>
+      	<input type="submit" id="submit" name="change_pass" value="Change Password" />
+      </form>
+    </main>
+  </div>
+
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/show-password-script.js"></script>
+  <script src="../../js/resetpass-page-script.js"></script>
+</body>
+</html>

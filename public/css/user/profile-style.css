@@ -1,0 +1,155 @@
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #151515;
+  gap: 2rem;
+}
+
+main {
+  align-self: center;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+main > h1 {
+  color: var(--main-text-color);
+  font-size: 3rem;
+}
+
+#profile_container {
+  align-self: center;
+
+  width: clamp(25rem, 100%, 60rem);
+  /* width: fit-content; */
+  padding: 2rem;
+
+  background-color: #222;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  border-radius: 1rem;
+  /*
+  background-color: #222;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  gap: 1.5rem;
+
+  border-radius: 1rem;
+  border: 1px solid #fff;
+  */
+}
+
+#profile_image_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#profile_image_container > a,
+#profile_image_container > button,
+#name_container > button,
+#username_container > button,
+#email_container > button,
+input[name="forgotpass"],
+input[name="del_acc"] {
+  padding: 0.5rem 1rem;
+
+  color: #fff;
+  font-size: 1.2rem;
+
+  background-color: var(--btn-color1);
+
+  border: none;
+  border-radius: 100rem;
+
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+#name_container > button:hover,
+#username_container > button:hover,
+#email_container > button:hover,
+#profile_image_container > a:hover,
+#profile_image_container > button:hover,
+input[name="forgotpass"]:hover,
+input[name="del_acc"]:hover {
+  background-color: var(--main-color);
+}
+
+#profile_image {
+  width: 55%;
+  min-width: 13rem;
+  max-width: 25rem;
+  border-radius: 100rem;
+}
+
+#user_info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--main-text-color);
+}
+
+#name_container, #username_container, #email_container {
+  color: #fff;
+}
+
+#name_container > h3, 
+#username_container > h3, 
+#email_container > h3 {
+  color: var(--btn-color1);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#name_container > h2, 
+#username_container > h2, 
+#email_container > h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#favorites {
+  display: flex;
+  flex-direction: column;
+}
+
+#favorite_games, #visited_games {
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-color: #222 transparent;
+}
+
+.game {
+  padding: 1rem;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  transition: all ease 0.5s;
+}
+
+.game img {
+  width: 10rem;
+}

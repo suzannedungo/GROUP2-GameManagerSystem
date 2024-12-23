@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../res/img/icon-page.png" type="image/x-icon">
+  <title>Dashboard | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../css/general-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-dashboard-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/"><h2> Dashboard</h2></a>
+      </div>
+
+      <div id="totals_container">
+        <div class="total genres">
+          <h1>Genres</h1>
+          <p id="total_genres">{total_genre}</p>
+        </div>
+        <div class="total games">
+          <h1>Games</h1>
+          <p id="total_games">{total_game}</p>
+        </div>
+        <div class="total users">
+          <h1>Users</h1>
+          <p id="total_users">{total_user}</p>
+        </div>
+      </div>
+
+      <div id="recents_container">
+        <div class="recent users">
+          <div class="top">
+            <h1>Recent Users Joined</h1>
+            <a href="/admin/manage_users">Manage</a>
+          </div>
+          <div id="users_container">
+            {user}
+          </div>
+        </div>
+        <div class="recent games">
+          <div class="top">
+            <h1>Recent Games Added</h1>
+            <a href="/admin/manage_games">Manage</a>
+          </div>
+          <div id="games_container">
+            {game}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

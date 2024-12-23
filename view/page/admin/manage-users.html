@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../res/img/icon-page.png" type="image/x-icon">
+  <title>Manage Users | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../css/general-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-manage-users-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_users"><h2> Manage Users</h2></a>
+      </div>
+
+      <div id="container">
+        <h1>Ban User</h1>
+        <div id="user_table_container">
+          {table}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

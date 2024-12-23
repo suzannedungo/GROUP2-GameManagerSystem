@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../res/img/icon-page.png" type="image/x-icon">
+  <title>Manage Games | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../css/general-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-manage-games-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_games"><h2> Manage Games</h2></a>
+      </div>
+      <div id="container">
+        <div id="all_games_container">
+          <h1>All Games</h1>
+
+          <div id="all_games_buttons">
+            <a href="/admin/manage_games/add_game">Add</a>
+            <a href="/admin/manage_games/edit_game">Edit</a>
+            <a href="/admin/manage_games/delete_game">Delete</a>
+          </div>
+
+          <div id="games">
+            {game}
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

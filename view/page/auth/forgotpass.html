@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="res/img/icon-page.png" type="image/x-icon" />
+  <title>Forgot Password | Void</title>
+
+  <link rel="stylesheet" href="css/general-style.css" />
+  <link rel="stylesheet" href="css/auth/auth-box-container-style.css" />
+  <link rel="stylesheet" href="css/auth/other-auth-style.css" />
+</head>
+<body>
+  <div id="wrapper">
+    <main>
+      <img src="res/img/logo-white.png" alt="logo name" />
+      <h2>Forgot Password</h2>
+      <p>Enter your email so we can send an email to your account</p>
+      <form action="/forgotpass" method="POST">
+        <input type="hidden" name="csrf_token" value="{csrf_token}" />
+        <input type="email" id="input" name="email" placeholder="Email" required />
+      	<input type="submit" id="submit" name="forgotpass" value="Send Email" />
+      </form>
+    </main>
+  </div>
+</body>
+</html>

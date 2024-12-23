@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../../res/img/icon-page.png" type="image/x-icon">
+  <title>{game_name} | Void</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../../css/general-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-manage-games-preview-style.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_games"><h2> Manage Games</h2></a>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_games/preview_game?id={game_id}"><h2> Preview Game</h2></a>
+      </div>
+      <div id="container">
+
+        <div class="gameinfo" style="background-image: 
+    linear-gradient(rgba(21, 21, 21, 0.3), rgba(21, 21, 21, 1)),
+    url({game_bg});">
+          <div class="logoname">
+            <img src="../../res/img/logo-white.png" alt="logo" /> 
+          </div>
+
+          <div class="game-image-container">
+            <div class="game-title">
+              <h1>{game_name}</h1>
+              <h3>{game_dev}</h3>
+              <div class="game-icon">
+                <img src="{game_icon}" alt="game icon" />
+                <div class="game-rating">
+                  <h4>{rating}</h4>
+                  {rating_star}
+                </div>
+              </div>
+              <div class="download-button-conntainer">
+                <a href="{game_dl_link}" class="download-button-link">
+                  <span>Download now</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="terms">
+            <h3>By clicking "Download now", you will be redirected to the games download site. </h3>
+          </div>
+        </div>
+
+        <div class="about-container">
+          <h3>About This Game</h3>
+          <p class="genre-section">{game_genre}</p>
+          <p>{game_info}</p>
+        </div>
+
+        <div class="sample-images">
+        <div class="content-container">
+          <div class="slider">
+            <div class="slider-track">
+              <div class="slide">
+                <img src="{game_sample0}" />
+              </div>
+              <div class="slide">
+                <img src="{game_sample1}" />
+              </div>
+              <div class="slide">
+                <img src="{game_sample2}" />
+              </div>
+              <div class="slide">
+                <img src="{game_sample3}" />
+              </div>
+              <div class="slide">
+                <img src="{game_sample4}" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/admin/admin-side-bar-script.js"></script>
+  <!-- <script src="../../js/admin/admin-manage-games-preview.js"></script> -->
+</body>
+</html>

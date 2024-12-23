@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="res/img/icon-page.png" type="image/x-icon" />
+  <title>Verify OTP | Void</title>
+
+  <link rel="stylesheet" href="css/general-style.css" />
+  <link rel="stylesheet" href="css/auth/auth-box-container-style.css" />
+  <link rel="stylesheet" href="css/auth/other-auth-style.css" />
+</head>
+<body>
+  <div id="wrapper">
+    <main>
+      <img src="res/img/logo-white.png" alt="logo name" />
+      <h2>Verify OTP</h2>
+      <p>Enter OTP to verify your account</p>
+      <form action="/verifyotp" method="POST">
+        <input type="hidden" name="csrf_token" value="{csrf_token}" />
+        <input type="number" id="input" name="otp" placeholder="OTP" required />
+        <input type="submit" id="submit" name="otp_sent" value="Verify" />
+      </form>
+    </main>
+  </div>
+</body>
+</html>

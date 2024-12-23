@@ -1,0 +1,188 @@
+body{
+  background: url("../../res/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#wrapper {
+	min-height: 100vh;
+
+	background-color: var(--wrapperbg);
+
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+header {
+	padding: 2rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+header > img {
+	width: 15rem;
+}
+
+header > div {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+header > div > button {
+	width: 13rem;
+	height: 80%;
+
+	font-weight: 500;
+
+	background-color: var(--btn-color);
+	border: none;
+	border-radius: 100rem;
+
+	cursor: pointer;
+	transition: all ease 300ms;
+}
+
+header > div > button:hover {
+	background-color: var(--btn-hover-color);
+}
+
+@media (max-width: 700px) {
+	header {
+		justify-content: center;
+	}
+
+	header > div {
+		display: none;
+	}
+}
+
+main {
+	flex-grow: 1;
+	flex-shrink: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#forms_container {
+	padding: 1rem;
+}
+
+.form-container {
+	flex-direction: column;
+	gap: 3rem;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.form-container > h2 {
+	color: var(--main-text-color);
+	font-size: 3rem;
+	font-weight: normal;
+	text-align: center;
+}
+
+.form-container > form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.input-box {
+	background-color: var(--input-box-bg1);
+	color: var(--main-text-color);
+
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	border-radius: 100rem;
+
+	transition: all ease 0.5s;
+}
+
+.input-box i {
+	font-size: 1.7rem;
+}
+
+.input-field {
+	flex: 1;
+
+	background-color: transparent;
+
+	color: var(--main-text-color);
+	font-size: 1.6rem;
+
+	border: none;
+	outline: none;
+}
+
+.submit-btn {
+	padding: 1rem 2rem;
+
+	background-color: var(--btn-color);
+
+	font-size: 1.5rem;
+	font-weight: 500;
+	
+	cursor: pointer;
+
+	border-radius: 100rem;
+	border: none;
+}
+
+.submit-btn:hover {
+	background-color: var(--btn-hover-color);
+}
+
+.bottom {
+	font-size: 1.3rem;
+}
+
+.bottom, .bottom a {
+	color: var(--main-text-color);
+	cursor: pointer;
+}
+
+.bottom a:hover {
+	color: var(--link-hover);
+}
+
+#login_container .input-box {
+	padding: 1rem 2rem;
+}
+
+#login_container .input-field {
+	width: clamp(18rem, 40vw, 45rem);
+}
+
+#login_container .bottom {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10%;
+}
+
+#login_show_pass, #register_show_pass {
+	cursor: pointer;
+}
+
+#register_container .input-box {
+	padding: 1rem;
+}
+
+#two_inputs {
+	display: flex;
+	gap: 1rem;
+}
+
+#two_inputs .input-field {
+	width: 100%;
+}
+
+#register_container .bottom {
+	text-align: center;
+}

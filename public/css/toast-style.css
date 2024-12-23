@@ -1,0 +1,42 @@
+.toast {
+  display: none;
+  opacity: 0;
+  padding: 1rem;
+  width: clamp(20rem, 70%, 30rem);
+  position: fixed;
+  /* background-color: #222; */
+  /* border: 0.3rem solid #a8a8a8; */
+  border-radius: 1rem;
+  color: #fff;
+  transition: opacity ease-out 0.5s;
+}
+
+/* For large screens */
+@media (min-width: 769px) {
+  .toast {
+    top: 1vh;
+    right: 1vw;
+  }
+}
+
+/* For phone screens */
+@media (max-width: 768px) {
+  .toast {
+    text-align: center;
+    left: 50%;
+    bottom: 1vw;
+    transform: translateX(-50%);
+  }
+}
+
+.success {
+  background-color: var(--bg-success);
+}
+
+.error {
+  background-color: var(--bg-error);
+}
+
+.normal {
+  background-color: var(--bg-toast);
+}

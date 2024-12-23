@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../../res/img/icon-page.png" type="image/x-icon">
+  <title>Delete Genre | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../../css/general-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin/admin-manage-genres-delete-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_genres"><h2> Manage Genres</h2></a>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_genres/delete_genre"><h2> Delete Genre<h2></a>
+      </div>
+      <div id="container">
+        <h1>Delete Genre</h1>
+        <form action="/admin/manage_genres/delete_genre" method="post">
+          <input type="hidden" name="csrf_token" value="{csrf_token}" />
+          <input type="hidden" name="_method" value="DEL" />
+          <label for="genre">Choose genre:</label>
+          <select name="genre" id="genre" required>
+            {option}
+          </select>
+          <br>
+          <input type="submit" name="delete_genre" value="Delete Genre"/>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

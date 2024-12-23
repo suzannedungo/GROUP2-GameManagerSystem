@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../res/img/icon-page.png" type="image/x-icon">
+  <title>Manage Genres | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../css/general-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../css/admin/admin-manage-genres-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_genres"><h2> Manage Genres</h2></a>
+      </div>
+      <div id="container">
+        <div id="add_genre_container">
+          <h1>Add Genre</h1>
+          <form action="/admin/manage_genres/add_genre" method="post">
+            <!-- <label for="name">Genre Name: </label> -->
+            <input type="hidden" name="csrf_token" value="{csrf_token}" />
+            <input type="text" name="name" id="genre_name" placeholder="Genre Name" required />
+            <br />
+            <input type="submit" id="add_genre" name="add_genre" value="Add" />
+          </form>
+        </div>
+
+        <div id="all_genres_container">
+          <h1>All Genres</h1>
+
+          <div id="all_genres_buttons">
+            <a href="/admin/manage_genres/edit_genre">Edit</a>
+            <a href="/admin/manage_genres/delete_genre">Delete</a>
+          </div>
+
+          <div id="genres">
+            {genre}
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

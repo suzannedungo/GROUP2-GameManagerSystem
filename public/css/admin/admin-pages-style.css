@@ -1,0 +1,51 @@
+body {
+  background-color: #151515;
+}
+
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+}
+
+@media (max-width: 725px) {
+  #wrapper {
+    flex-direction: column;
+  }
+}
+
+main {
+  padding: 1rem;
+  flex: 1 1 70vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#page_bar {
+  padding: 1rem;
+
+  color: var(--main-text-color);
+
+  background-color: rgb(88, 88, 88);
+  border-radius: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#page_bar a {
+  color: var(--main-text-color);
+}
+
+#page_bar a:hover {
+  text-decoration: underline;
+}
+
+#page_bar h2 {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+#page_bar i {
+  font-size: 1.8rem;
+}

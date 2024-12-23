@@ -1,0 +1,60 @@
+main {
+  gap: 2rem;
+}
+
+#smtp_user_container {
+  align-self: center;
+
+  width: clamp(28rem, 50%, 50rem);
+
+  padding: 1rem;
+  background-color: #222;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  border-radius: 1rem;
+}
+
+#smtp_user_container > h1 {
+  color: var(--main-text-color);
+  font-size: 2.8rem;
+}
+
+#smtp_user_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#smtp_user_info > p {
+  line-height: 3rem;
+  color: var(--main-text-color);
+  font-size: 1.5rem;
+}
+
+#smtp_user_container span {
+  border-bottom: 0.18rem solid var(--main-text-color);
+}
+
+#buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+#buttons > a, #buttons input[type="submit"] {
+  padding: 1rem;
+  color: #000;
+  background-color: var(--btn-color);
+  font-weight: 500;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+#buttons > a:hover, #buttons input[type="submit"]:hover {
+  background-color: var(--btn-color1);
+}

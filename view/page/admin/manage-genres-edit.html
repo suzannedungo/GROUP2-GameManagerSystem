@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../../res/img/icon-page.png" type="image/x-icon">
+  <title>Edit Genre | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../../css/general-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-side-bar-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-pages-style.css">
+  <link rel="stylesheet" href="../../css/admin/admin-manage-genres-edit-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    {side_bar}
+    <main>
+      <div id="page_bar">
+        <h2>Home </h2>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_genres"><h2> Manage Genres</h2></a>
+        <i class="bx bx-chevron-right"></i>
+        <a href="/admin/manage_genres/edit_genre"><h2> Edit Genre</h2></a>
+      </div>
+      <div id="container">
+        <h1>Edit Genre</h1>
+        <form action="/admin/manage_genres/edit_genre" method="post">
+          <input type="hidden" name="csrf_token" value="{csrf_token}" />
+          <input type="hidden" name="_method" value="PUT" />
+          <label for="genre">Choose genre:</label>
+          <select name="genre" id="genre" required>
+            {option}
+          </select>
+          <br>
+          <label for="name">New name:</label>
+          <input type="text" name="name" required/>
+          <br>
+          <input type="submit" name="edit_genre" value="Edit Genre"/>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/admin/admin-side-bar-script.js"></script>
+</body>
+</html>

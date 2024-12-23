@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | Void</title>
+
+  <link rel="stylesheet" href="../../css/general-style.css">
+  <link rel="stylesheet" href="../../css/modal-style.css">
+  <link rel="stylesheet" href="../../css/user/top-bar-style.css">
+  <link rel="stylesheet" href="../../css/user/profile-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      {top_bar}
+    </header>
+    <main>
+      <div id="profile_container">
+        <div id="profile_image_container">
+          <img src="{user_dp}" id="profile_image" alt="User Profile Image" />
+          <button id="edit_dp">Edit Image</button>
+          <a href="/user/profile/reset_dp">Reset Image</a>
+        </div>
+
+        <div id="user_info_container">
+          <div id="name_container">
+            <h3>Display Name</h3>
+            <h2>{user_name}</h2>
+            <button id="edit_name">Edit</button>
+          </div>
+          <div id="username_container">
+            <h3>Display Username</h3>
+            <h2>{user_username}</h2>
+            <button id="edit_username">Edit</button>
+          </div>
+          <div id="email_container">
+            <h3>Display Email</h3>
+            <h2>{user_email}</h2>
+            <button id="edit_email">Edit</button>
+          </div>
+          <form action="/forgotpass" method="post">
+            <input type="hidden" name="csrf_token" value="{csrf_token}" />
+            <input type="hidden" name="email" value="{user_email}" />
+            <input type="submit" name="forgotpass" value="Reset Password" />
+          </form>
+
+          <form action="/user/del_acc" method="post">
+            <input type="hidden" id="csrf_token" value="{csrf_token}" />
+            <input type="hidden" id="_method" value="DEL" />
+            <input type="hidden" id="del_email" name="email" value="{user_email}" />
+            <input type="submit" id="del_acc" name="del_acc" value="Delete Account" />
+          </form>
+        </div>
+      </div>
+
+
+      <div id="favorites">
+        <h1>Favorite Games</h1>
+        <div id="favorite_games">
+          {fav_game}
+        </div>
+      </div>
+
+      <div id="visited_games_container">
+        <h1>Visited Games</h1>
+        <div id="visited_games">
+          {visited_game}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal_container">
+    <div id="modal">
+      <div id="modal_content">
+        <div id="modal_content_header">
+          <h1>Update Info</h1>
+        </div>
+      
+        <hr width="100%" />
+      
+        <div id="modal_content_body">
+          <form action="/user/profile/update" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{csrf_token}" />
+            <input type="hidden" name="_method" value="PUT" />
+            <label for="">New {}</label>
+            <input type="" name="" id="input" required />
+            <button id="close_modal">Close</button>
+            <input type="submit" name="update_profile" value="Update"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/modal-script.js"></script>
+  <script src="../../js/user/user-profile-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../res/img/icon-page.png">
+  <title>Home | Void</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="../css/general-style.css">
+  <link rel="stylesheet" href="../css/user/top-bar-style.css">
+  <link rel="stylesheet" href="../css/user/user-dashboard-style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      {top_bar}
+    </header>
+    <main>
+      <!-- Testing Mamaya Pag May Data Na -->
+      <div id="most_favorite_games">
+        <h1>Most Favorite Games</h1>
+        <div id="most_favorite_games_container">
+          {fav_game}
+        </div>
+      </div>
+
+      <!-- Testing Mamaya Pag May Data Na -->
+      <div id="most_visited_games">
+        <h1>Most Viewed Games</h1>
+        <div id="most_visited_games_container">
+          {visited_game}
+        </div>
+      </div>
+
+      <div id="genres">
+        <h1>Browse By Genre</h1>
+        <div id="genres_container">
+          {genre}
+        </div>
+      </div>
+      
+      <div id="games">
+        <h1>All Games</h1>
+        <div id="games_container">
+          {game}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- <script src="../js/user-dashboard.js"></script> -->
+</body>
+</html>

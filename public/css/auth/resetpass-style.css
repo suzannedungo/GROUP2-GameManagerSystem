@@ -1,0 +1,64 @@
+body{
+  background: url("../../res/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.input-box {
+  padding: 1rem;
+  background-color: var(--input-field-color);
+  
+  color: var(--main-text-color);
+  font-size: 1.5rem;
+
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#show_pass {
+  cursor: pointer;
+}
+
+.input-box i {
+	font-size: 1.7rem;
+}
+
+.input-field {
+  flex-grow: 1;
+  background: transparent;
+
+  color: var(--main-text-color);
+  font-size: 1.5rem;
+
+  border: none;
+  outline: none;
+}
+
+#submit {
+	padding: 1rem 2rem;
+
+	background-color: var(--btn-color);
+
+	font-size: 1.5rem;
+	
+	cursor: pointer;
+
+	border-radius: 0.5rem;
+	border: none;
+}
+
+#submit:hover {
+	background-color: var(--btn-hover-color);
+}

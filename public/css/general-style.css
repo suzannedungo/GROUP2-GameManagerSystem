@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --input-box-bg1: rgba(255, 255, 255, 0.2);
+  --bg-toast: rgba(46, 46, 46, 0.651);
+  --bg-success: rgba(0, 253, 42, 0.651);
+  --bg-error: rgba(231, 17, 17, 0.651);
+
+  --nav-background:rgb(88, 88, 88);
+  --profile-container-background:rgb(88, 88, 88);
+  --btn-color1:#b48cfc;
+  --hover-color:#b48cfc;
+  --sec-hover-color:#7d56c7;
+
+  --main-text-color:white;
+  --main-color: #8455c4;
+  --sec-text-color:black;
+  --btn-color:rgba(255, 255, 255, 0.865);
+  --btn-hover-color:rgba(255, 255, 255, 0.5);
+  --wrapperbg: rgba(39, 39, 39, 0.4);
+  --link-hover:rgb(157, 5, 195);
+}
+
+a {
+  text-decoration: none;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.translatex-0 {
+  transform: translateX(0);
+}
+
+.translatex-n100pc {
+  transform: translateX(-100%);
+}
+
+.translatex-100pc {
+  transform: translateX(100%);
+}
+
+.bg-red {
+  background-color: rgba(255, 0, 0, 0.651);
+}

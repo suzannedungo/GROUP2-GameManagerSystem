@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="res/img/icon-page.png" type="image/x-icon" />
+  <title>Login & Register | Void</title>
+
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
+  <link rel="stylesheet" href="css/general-style.css" />
+  <link rel="stylesheet" href="css/auth/signupin-style.css" />
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <img src="res/img/logo-white.png" alt="logo" />
+    
+      <div>
+        <button class="loginBtn">Sign In</button>
+        <button class="registerBtn">Sign Up</button>
+      </div>
+    </header>
+  
+    <main>
+  		<div id="forms_container">
+    		<div id="login_container" class="form-container d-flex opacity-1 translatex-0">
+    		  <h2>Login</h2>
+        
+    			<form action="/signin" method="POST">
+						<input type="hidden" name="csrf_token" class="csrf-token" value="{csrf_token}" />
+    		    <div class="input-box" id="login_email_container">
+    		      <i class="bx bx-user"></i>
+    		      <input type="email" class="input-field" id="login_email" name="email" required placeholder="Email" />
+    		    </div>
+    		    <div class="input-box" id="login_password_container">
+    		      <i class="bx bx-lock-alt"></i>
+    		      <input type="password" id="login_pass" class="input-field" name="password" required placeholder="Password" />
+  						<i id="login_show_pass" class="bx bx-low-vision"></i>
+    		    </div>
+  					<input type="submit" class="submit-btn" id="login_btn" name="signin" value="Sign In" />
+    		    <div class="bottom">
+    		      <p>Don't have an account? <a class="registerBtn">Sign Up</a></p>
+    		      <a href="/forgotpass">Forgot password?</a>
+    		    </div>
+    			</form>
+    		</div>
+      
+    		<div id="register_container" class="form-container d-none opacity-0 translatex-100pc">
+    		  <h2>Sign Up</h2>
+        
+    		  <form action="/signup" method="POST">
+						<input type="hidden" name="csrf_token" class="csrf-token" value="{csrf_token}" />
+    		    <div id="two_inputs">
+    		      <div class="input-box" id="register_name_container">
+    		        <i class="bx bx-user"></i>
+    		        <input type="text" class="input-field" id="register_name" name="name" required placeholder="Name" />
+    		      </div>
+    		      <div class="input-box" id="register_username_container">
+    		        <i class="bx bx-user"></i>
+    		        <input type="text" class="input-field" id="register_username" name="username" required placeholder="Username" />
+    		      </div>
+    		    </div>
+    		    <div class="input-box" id="register_email_container">
+    		      <i class="bx bx-envelope"></i>
+    		      <input type="email" class="input-field" id="register_email" name="email" required placeholder="Email" />
+    		    </div>
+    		    <div class="input-box" id="register_password_container">
+    		      <i class="bx bx-lock-alt"></i>
+    		      <input type="password" id="register_pass" class="input-field" name="password" required placeholder="Password" />
+  						<i id="register_show_pass" class="bx bx-low-vision"></i>
+    		    </div>
+    		    <input type="submit" class="submit-btn" id="register_btn" name="signup" value="Register" />
+    		    <div class="bottom">
+    		      <p>Have an account? <a class="loginBtn">Login</a></p>
+    		    </div>
+    		  </form>
+    		</div>
+  		</div>
+  	</main>
+  </div>
+
+  <script src='js/jquery-3.7.1.min.js'></script>
+  <script src="js/toast-script.js"></script>
+  <script src="js/show-password-script.js"></script>
+  <script src="js/auth/signupin-swipe-script.js"></script>
+</body>
+</html>
