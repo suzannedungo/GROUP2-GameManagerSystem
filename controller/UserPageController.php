@@ -37,7 +37,10 @@ class UserPageController {
     $visited_game = new VisitedGame();
 
     $featured_game = $game_review->getHighestRatingGame();
-    $featured_game["img"] = $game->getBGById($featured_game["game_id"]);
+    $featured_game_img = false;
+    if($featured_game !== 0 && $featured_game !== false) {
+      $featured_game_img = $game->getBGById($featured_game["game_id"]);
+    }
 
     $total_games = $game->getTotalGame();
     $games = $game_review->getAverageRatingForAllGames();
@@ -64,6 +67,7 @@ class UserPageController {
       'genres' => $genre->getAllGenre(),
       "favorite_games" => $fav_games,
       "featured_game" => $featured_game,
+      "featured_game_img" => $featured_game_img,
       "visited_games" => $v_games,
       "total_games" => $game->getTotalGame(),
       "games" => $games

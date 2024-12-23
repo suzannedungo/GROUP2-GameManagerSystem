@@ -13,9 +13,9 @@ class UserPageView {
     $page = str_replace("{top_bar}", $top_bar, $page);
 
     $featured_game = "";
-    if($data["featured_game"] > 0 || $data["featured_game"] !== false) {
+    if($data["featured_game"] > 0 && $data["featured_game"] !== false) {
       $featured_game = 
-        "<div class='featured-content'". "style='background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url(../{$data['featured_game']['img']})no-repeat center center /cover;'></div>";
+        "<div class='featured-content'". "style='background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url(../{$data['featured_game_img']}')no-repeat center center /cover;'></div>";
     }
     $page = str_replace("{featured_game}", $featured_game, $page);
 
