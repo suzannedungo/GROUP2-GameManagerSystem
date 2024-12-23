@@ -73,7 +73,7 @@
 
 #side_bar > img {
   padding: 1rem;
-  width: clamp(10rem, 50%, 15rem);
+  width: clamp(10rem, 50%, 12rem);
 }
 
 #side_bar > nav {
