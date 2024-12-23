@@ -14,6 +14,7 @@ class AdminController {
       exit();
     }
 
+    // Check csrf mamaya.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = false;

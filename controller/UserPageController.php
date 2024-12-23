@@ -13,17 +13,31 @@ use App\Model\VisitedGame;
 use App\View\UserPageView;
 
 class UserPageController {
+  private static function checkUserBan() {
+    $user = new User();
+    if(($user->getStatusByEmail($_SESSION["signed_in_acc"]["email"])) == "ban") {
+      session_unset();
+      session_destroy();
+      Utilities::showAlert("Unfortunately, your account is banned by the Admin.");
+      Utilities::showAlertAndExit("You will be signout.", "/", 403);
+    }
+  }
+
   public static function dashboard() {
     Authentication::checkVerifyOTPOnGoing();
     Authentication::checkAccountNotSignedIn();
     Authentication::redirectToAdmin();
     Utilities::generateCSRFToken();
+    self::checkUserBan();
 
     $genre = new Genre();
     $game = new Game();
     $game_review = new GameReview();
     $favorite_game = new FavoriteGame();
     $visited_game = new VisitedGame();
+
+    $featured_game = $game_review->getHighestRatingGame();
+    $featured_game["img"] = $game->getBGById($featured_game["game_id"]);
 
     $total_games = $game->getTotalGame();
     $games = $game_review->getAverageRatingForAllGames();
@@ -49,6 +63,7 @@ class UserPageController {
     $data = [
       'genres' => $genre->getAllGenre(),
       "favorite_games" => $fav_games,
+      "featured_game" => $featured_game,
       "visited_games" => $v_games,
       "total_games" => $game->getTotalGame(),
       "games" => $games
@@ -62,6 +77,7 @@ class UserPageController {
     Authentication::checkAccountNotSignedIn();
     Authentication::redirectToAdmin();
     Utilities::generateCSRFToken();
+    self::checkUserBan();
 
     if(!isset($_GET["id"])) {
       header("Location: /user/");
@@ -137,6 +153,7 @@ class UserPageController {
     Authentication::checkAccountNotSignedIn();
     Authentication::redirectToAdmin();
     Utilities::generateCSRFToken();
+    self::checkUserBan();
 
     $game = new Game();
 
@@ -169,6 +186,7 @@ class UserPageController {
     Authentication::checkAccountNotSignedIn();
     Authentication::redirectToAdmin();
     Utilities::generateCSRFToken();
+    self::checkUserBan();
 
     if(!isset($_GET["id"])) {
       header("Location: /user/");

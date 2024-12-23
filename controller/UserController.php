@@ -15,6 +15,7 @@ class UserController {
       exit();
     }
 
+    // Check CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = false;
@@ -78,7 +79,8 @@ class UserController {
       $_SESSION["signed_in_acc"]["name"] = $name;
     }
     
-    if($username !== false) {
+    if($username != false) {
+      $username = strtolower($username);
       if(!$user->updateUsernameById($id, $username)) {
         Utilities::showAlertAndExit("An error occured on updating username.", "/user/profile", 500);
       }
@@ -128,7 +130,7 @@ class UserController {
   public static function delAccount() {
     if(!isset($_POST["del_acc"]) && $_POST["_method"] == "DEL") {
       echo false;
-      return;
+      // return;
       // header("Location: /user/profile");
       // exit();
     }
@@ -148,6 +150,7 @@ class UserController {
       exit();
     }
 
+    // Check CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $user = new User();

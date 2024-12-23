@@ -14,6 +14,7 @@ class Authentication {
       exit();
     }
 
+    // Check CSRF Token Bug mamaya.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = trim($_POST["name"]);
@@ -65,6 +66,7 @@ class Authentication {
       exit();
     }
 
+    // Check mamaya CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
     
     $email = trim($_POST["email"]);
@@ -132,6 +134,7 @@ class Authentication {
       exit();
     }
 
+    // Check mamaya CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     if($_SESSION["otp"] != $_POST["otp"]) {
@@ -211,6 +214,7 @@ class Authentication {
       exit();
     }
 
+    // Check CSRF Tken mamaya.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $email = trim($_POST["email"]);
@@ -224,6 +228,7 @@ class Authentication {
 
     $subject = "RESET PASSWORD";
 
+    // $link = "https://thevoid.website/resetpass?id={$user_info['id']}&tokencode={$user_info['tokencode']}";
     $link = "http://localhost:8080/resetpass?id={$user_info['id']}&tokencode={$user_info['tokencode']}";
     $message = file_get_contents(Utilities::getPath() . "/view/email/rp-email.html");
     $message = str_replace("{link}", $link, $message);
@@ -241,6 +246,8 @@ class Authentication {
       header("Location: /");
       exit();
     }
+
+    // Check CSRF Token bug.
 
     $password = trim($_POST["password"]);
     self::checkInputEmpty($password, "password", "/resetpass?id={$_POST['id']}&tokencode={$_POST['tokencode']}");

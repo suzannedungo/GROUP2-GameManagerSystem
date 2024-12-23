@@ -40,7 +40,7 @@ class LandingPageController {
 
   public static function resetPass() {
     Authentication::checkVerifyOTPOnGoing();
-    Authentication::checkAccountSignedIn();
+    // Authentication::checkAccountSignedIn();
     Utilities::generateCSRFToken();
 
     if(!isset($_GET["id"]) && !isset($_GET["tokencode"])) {

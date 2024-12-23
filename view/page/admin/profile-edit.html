@@ -28,7 +28,7 @@
         <form action="/admin/profile/update" method="post" {enctype}>
           <input type="hidden" name="_method" value="PUT" />
           <input type="hidden" name="csrf_token" value="{csrf_token}" />
-          <input type="hidden" name="id" value="{csrf_token}" />
+          <input type="hidden" name="id" value="{id}" />
           <label for="{edit}">New {edit}:</label>
           <input type="{type}" name="{edit}" required/>
           <br>

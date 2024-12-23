@@ -14,6 +14,7 @@ class GameController {
       exit();
     }
 
+    // Check CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = trim($_POST["name"]);

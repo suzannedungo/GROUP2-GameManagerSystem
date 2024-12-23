@@ -12,6 +12,7 @@ class GenreController {
       exit();
     }
 
+    // Chcek CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = trim($_POST["name"]);
@@ -37,6 +38,7 @@ class GenreController {
       exit();
     }
 
+    // Check CSRF Token Bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $name = trim($_POST["name"]);
@@ -64,6 +66,7 @@ class GenreController {
       exit();
     }
 
+    // Check CSRF Token bug.
     Utilities::validateCSRFToken($_POST["csrf_token"]);
 
     $id = $_POST["genre"];

@@ -166,7 +166,7 @@ class AdminPageView {
         for($j = 0; $j < 5; $j++) {
           $star = "<i class='bx bxs-star'></i>";
           $star1 = "<i class='bx bx-star'></i>";
-          $star2 = $i < $games[$i]["average_rating"] ? $star2 . $star : $star2 . $star1;
+          $star2 = $j < $games[$i]["average_rating"] ? $star2 . $star : $star2 . $star1;
         }
         $game = str_replace("{rating_star}", $star2, $game);
 
@@ -282,7 +282,6 @@ class AdminPageView {
       $page = str_replace("{genre}", "", $page);
     } else {
       $input_genres = "<label>Pick At Least 1 Genre:</label>";
-      // $input_genres = $input_genres . "\n<br />";
 
       for($i = 0; $i < $total_genres ; $i++) {
         $input_genres = $input_genres . 
@@ -328,11 +327,12 @@ class AdminPageView {
     $side_bar = str_replace("{logo}", "../res/img/logo-white.png", $side_bar);
     $page = str_replace("{side_bar}", $side_bar, $page);
 
+
+    $total_users = $data["total_users"];
     $users = $data["users"];
-    if($users == false) {
+    if($total_users <= 0) {
       $page = str_replace("{table}", "<i>No verified and banned users yet.</i>", $page);
     } else {
-      $total_users = count($users);
       $table = "<table id='user_table'>";
       $table = $table . "\n  <thead>";
       $table = $table . "\n    <tr>";

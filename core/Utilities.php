@@ -49,7 +49,7 @@ class Utilities {
   }
 
   public static function showAlertAndExit($message, $redirect, $status_code) {
-    // http_response_code($status_code);
+    http_response_code($status_code);
     echo
     "<script>
       alert(\"{$message}\");

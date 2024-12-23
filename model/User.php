@@ -377,10 +377,7 @@ class User {
   }
 
   public function deleteByEmail($email) {
-    $stmt = $this->db->prepare("DELETE FROM `user` WHERE `email` = :email");
-    $stmt->execute([ ":email" => $email ]);
-
-    $username = ($this->getUserByEmail($email))["email"];
+    $username = ($this->getUserByEmail($email))["username"];
 
     $directory = Utilities::getPath() . "/public/uploads/users_images/{$username}";
     $iterator = new FilesystemIterator($directory, FilesystemIterator::SKIP_DOTS);
@@ -388,6 +385,9 @@ class User {
     foreach ($iterator as $item) {
       unlink($item->getPathname());
     }
+
+    $stmt = $this->db->prepare("DELETE FROM `user` WHERE `email` = :email");
+    $stmt->execute([ ":email" => $email ]);
 
     return rmdir($directory);
   }

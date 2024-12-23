@@ -16,6 +16,7 @@ class AdminPageController {
     Authentication::checkVerifyOTPOnGoing();
     Authentication::checkAccountNotSignedIn();
     Authentication::redirectToUser();
+    Utilities::generateCSRFToken();
 
 
     $user = new User();
@@ -268,7 +269,10 @@ class AdminPageController {
       }
     }
 
-    $data = ["users" => $users1];
+    $data = [
+      "total_users" => $total_users,
+      "users" => $users1
+    ];
 
     AdminPageView::manageUsersPage($data, $_SESSION["csrf_token"]);
   }

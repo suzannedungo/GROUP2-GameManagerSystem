@@ -39,33 +39,37 @@
             <h2>{user_email}</h2>
             <button id="edit_email">Edit</button>
           </div>
-          <form action="/forgotpass" method="post">
-            <input type="hidden" name="csrf_token" value="{csrf_token}" />
-            <input type="hidden" name="email" value="{user_email}" />
-            <input type="submit" name="forgotpass" value="Reset Password" />
-          </form>
+          <div id="btns_actions">
+            <form action="/forgotpass" method="post">
+              <input type="hidden" name="csrf_token" value="{csrf_token}" />
+              <input type="hidden" name="email" value="{user_email}" />
+              <input type="submit" name="forgotpass" value="Reset Password" />
+            </form>
 
-          <form action="/user/del_acc" method="post">
-            <input type="hidden" id="csrf_token" value="{csrf_token}" />
-            <input type="hidden" id="_method" value="DEL" />
-            <input type="hidden" id="del_email" name="email" value="{user_email}" />
-            <input type="submit" id="del_acc" name="del_acc" value="Delete Account" />
-          </form>
+            <form action="/user/del_acc" method="post">
+              <input type="hidden" id="csrf_token" value="{csrf_token}" />
+              <input type="hidden" id="_method" value="DEL" />
+              <input type="hidden" id="del_email" name="email" value="{user_email}" />
+              <input type="submit" id="del_acc" name="del_acc" value="Delete Account" />
+            </form>
+          </div>
         </div>
       </div>
 
 
-      <div id="favorites">
-        <h1>Favorite Games</h1>
-        <div id="favorite_games">
-          {fav_game}
+      <div id="games_containers">
+        <div id="favorites">
+          <h1>Favorite Games</h1>
+          <div id="favorite_games">
+            {fav_game}
+          </div>
         </div>
-      </div>
 
-      <div id="visited_games_container">
-        <h1>Visited Games</h1>
-        <div id="visited_games">
-          {visited_game}
+        <div id="visited_games_container">
+          <h1>Visited Games</h1>
+          <div id="visited_games">
+            {visited_game}
+          </div>
         </div>
       </div>
     </main>
@@ -81,13 +85,15 @@
         <hr width="100%" />
       
         <div id="modal_content_body">
-          <form action="/user/profile/update" method="post" enctype="multipart/form-data">
+          <form id="update_form" action="/user/profile/update" method="post" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="{csrf_token}" />
             <input type="hidden" name="_method" value="PUT" />
             <label for="">New {}</label>
             <input type="" name="" id="input" required />
-            <button id="close_modal">Close</button>
-            <input type="submit" name="update_profile" value="Update"/>
+            <div id="btns">
+              <button id="close_modal">Close</button>
+              <input type="submit" name="update_profile" value="Update"/>
+            </div>
           </form>
         </div>
       </div>

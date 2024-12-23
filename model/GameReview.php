@@ -24,6 +24,27 @@ class GameReview {
   }
 
   /* === RETRIEVE FUNCTIONS === */
+  public function getHighestRatingGame() {
+    $stmt = $this->db->prepare(
+      "SELECT `game`.`id` AS game_id, AVG(`game_review`.`rating`) AS avg_rating
+       FROM `game`
+       JOIN `game_review`
+       ON `game`.`id` = `game_review`.`game_id`
+       GROUP BY `game`.`id`
+       ORDER BY avg_rating DESC
+       LIMIT 1");
+
+    if(!($stmt->execute())) {
+      return false;
+    }
+
+    if($stmt->rowCount() <= 0) {
+      return 0;
+    }
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
   public function getAllReviewsByGameId($gid) {
     $stmt = $this->db->prepare("SELECT * FROM `game_review` WHERE `game_id` = :gid");
     if(!$stmt->execute([ ":gid" => $gid ])) {

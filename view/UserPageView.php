@@ -12,6 +12,13 @@ class UserPageView {
     $top_bar = str_replace("{profile_image}", "../../" . $_SESSION["signed_in_acc"]["profile_image"], $top_bar);
     $page = str_replace("{top_bar}", $top_bar, $page);
 
+    $featured_game = "";
+    if($data["featured_game"] > 0 || $data["featured_game"] !== false) {
+      $featured_game = 
+        "<div class='featured-content'". "style='background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url(../{$data['featured_game']['img']})no-repeat center center /cover;'></div>";
+    }
+    $page = str_replace("{featured_game}", $featured_game, $page);
+
     // Most Favorite Games.
     $fav_games = $data["favorite_games"];
     if($fav_games === 0 || $fav_games === false) {
