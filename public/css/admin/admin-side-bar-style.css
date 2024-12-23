@@ -71,7 +71,8 @@
 }
 */
 
-#side_bar > img {
+/* #side_bar > img { */
+#logo_page {
   padding: 1rem;
   width: clamp(10rem, 50%, 12rem);
 }
