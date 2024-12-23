@@ -9,13 +9,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: flex-start;
   padding: 1rem;
 }
 
 main > h1 {
   color: #fff;
   font-size: 3rem;
+}
+
+#games_container > i {
+  color: white;
 }
 
 #games_container {

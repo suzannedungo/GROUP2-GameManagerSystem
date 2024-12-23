@@ -12,9 +12,9 @@ header > a {
 }
 
 header > a > img {
-  width: 80%;
-  min-width: 10rem;
-  max-width: 15rem;
+  width: 10%;
+  min-width: 8rem;
+  max-width: 10rem;
 }
 
 header > nav {
@@ -60,6 +60,8 @@ header > nav {
 
 #user_link  img {
   width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
   border-radius: 100rem;
 }
 

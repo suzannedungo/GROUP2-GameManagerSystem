@@ -7,7 +7,7 @@ $(document).ready(function () {
         del_acc: true,
         _method: $("#_method").val(),
         csrf_token: $("#csrf_token").val(),
-        uid: $("#del_email").val()
+        email: $("#del_email").val()
       });
 
       alert('Your account is deleted successfully.');

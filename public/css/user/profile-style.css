@@ -2,20 +2,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   background-color: #151515;
-  gap: 2rem;
 }
 
 main {
-  align-self: center;
-
   padding: 1rem;
 
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  align-content: center;
+  gap: 5rem;
 }
 
 main > h1 {
@@ -26,8 +25,6 @@ main > h1 {
 #profile_container {
   align-self: center;
 
-  width: clamp(25rem, 100%, 60rem);
-  /* width: fit-content; */
   padding: 2rem;
 
   background-color: #222;
@@ -39,19 +36,6 @@ main > h1 {
   gap: 3rem;
 
   border-radius: 1rem;
-  /*
-  background-color: #222;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  gap: 1.5rem;
-
-  border-radius: 1rem;
-  border: 1px solid #fff;
-  */
 }
 
 #profile_image_container {
@@ -93,9 +77,8 @@ input[name="del_acc"]:hover {
 }
 
 #profile_image {
-  width: 55%;
-  min-width: 13rem;
-  max-width: 25rem;
+  width: 20rem;
+  height: 20rem;
   border-radius: 100rem;
 }
 
@@ -125,7 +108,21 @@ input[name="del_acc"]:hover {
   font-weight: 500;
 }
 
+#btns_actions {
+  align-self: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#games_containers {
+  width: 100%;
+  min-width: 20rem;
+  max-width: 60rem;
+}
+
+#visited_games_container,
 #favorites {
+  color: var(--main-text-color);
   display: flex;
   flex-direction: column;
 }
@@ -140,8 +137,14 @@ input[name="del_acc"]:hover {
   scrollbar-color: #222 transparent;
 }
 
+#games_containers h1 {
+  font-size: 2.5rem;
+  /* text-align: center; */
+}
+
 .game {
   padding: 1rem;
+  color: #fff;
   background-color: #222;
   display: flex;
   flex-direction: column;
@@ -152,4 +155,34 @@ input[name="del_acc"]:hover {
 
 .game img {
   width: 10rem;
+}
+
+#update_form {
+  padding: 1rem;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#btns {
+  display: flex;
+  gap: 0.8rem;
+}
+
+#input {
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+}
+
+#btns > * {
+  padding: 0.2rem;
+  background-color: var(--btn-color);
+  border-radius: 0.5rem;
+  border: none;
 }

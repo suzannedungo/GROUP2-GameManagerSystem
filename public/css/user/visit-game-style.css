@@ -20,13 +20,13 @@ main {
 
 .gameinfo {
   padding: 1.5rem;
-  min-height: 40vh;
-  max-height: 90vh;
+  min-height: 30rem;
+  max-height: 50rem;
 
   color: var(--main-text-color);
 
   background-size: cover;
-  background-position: center bottom;
+  background-position: center;
   background-repeat: no-repeat;
 
   display: flex;
@@ -65,7 +65,7 @@ main {
 
 .game-icon > img {
   border-radius: 5px;
-  width: 23%;
+  width: 10rem;
 }
 
 .game-rating h4 {
@@ -132,17 +132,6 @@ main {
   display: flex;
   align-items: center;
   cursor: pointer;
-
-  border: 1px solid #fff;
-}
-
-#fav_icon {
-  border: 1px solid #fff;
-}
-
-.about-container input {
-  border: 1px solid #fff;
-
 }
 
 .about-container h3 {
@@ -151,15 +140,6 @@ main {
   padding-bottom: 1rem;
   border-bottom: 3px solid var(--sec-color);
 }
-
-/* CONTINUE FAV ICON BUG */
-/*
-.about-container label {
-  color: white;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-  */
 
 .about-container .genre-section {
   color: var(--main-color);
@@ -227,26 +207,6 @@ main {
 .slide > img {
   width: 100%;
   border-radius: 5px;
-}
-
-.slider::before,
-.slider::after {
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 15%;
-    z-index: 2;
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
 }
 
 .comment-section {
@@ -377,7 +337,8 @@ main {
 }
 
 .profile img {
-  width: 100%;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100rem;
 }
 

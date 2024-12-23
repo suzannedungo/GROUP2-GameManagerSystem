@@ -1,27 +1,4 @@
 $(document).ready(function () {
-  let is_menu_open = false;
-  $("#menu").click(function() {
-    if(is_menu_open) {
-      $("#side_nav").css("opacity", "0");
-      $("#side_nav").css("transform", "translateX(-30vw)");
-      setTimeout(() => {
-        $("#side_nav").css("display", "none");
-        $("body").css("overflow", "scroll");
-      }, 200);
-
-      is_menu_open = false;
-    } else {
-      $("body").css("overflow", "hidden");
-      $("#side_nav").css("display", "block");
-      setTimeout(() => {
-        $("#side_nav").css("opacity", "1");
-        $("#side_nav").css("transform", "translateX(0)");
-      }, 200);
-
-      is_menu_open = true;
-    }
-  });
-
   let nav = window.location.pathname.split("/").pop();
 
   switch(nav) {
