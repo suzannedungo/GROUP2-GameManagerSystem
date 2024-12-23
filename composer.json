@@ -4,7 +4,7 @@
 	"minimum-stability": "stable",
 	"autoload": {
 	    "psr-4": {
-	        "App\\" : "./"
+	        "App\\" : "./home/u175342239/domains/thevoid.website/"
 	    }
 	},
 	"require": {
